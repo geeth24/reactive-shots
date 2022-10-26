@@ -9,6 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/server": "^11.10.0",
+    "@mantine/carousel": "^5.6.2",
+    "@mantine/core": "^5.6.2",
+    "@mantine/ds": "^5.6.2",
+    "@mantine/hooks": "^5.6.2",
+    "@mantine/next": "^5.6.2",
+    "@tabler/icons": "^1.108.0",
+    "embla-carousel-autoplay": "^7.0.3",
+    "embla-carousel-react": "^7.0.3",
     "next": "13.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -19,6 +29,9 @@
     "@types/react-dom": "18.0.7",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",
-    "typescript": "4.8.4"
+    "file-loader": "^1.1.11",
+    "ttf-loader": "^1.0.2",
+    "typescript": "4.8.4",
+    "url-loader": "^4.1.1"
   }
 }
