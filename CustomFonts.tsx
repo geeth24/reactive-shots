@@ -7,7 +7,7 @@ export function CustomFonts() {
                 {
                     "@font-face": {
                         fontFamily: "Lato",
-                        src: `url('./public/fonts/Lato-Bold.ttf') format('truetype')`,
+                        src: `url('/fonts/Lato-Bold.ttf') format('truetype')`,
                         fontWeight: 700,
                         fontStyle: "normal",
                     },
@@ -15,7 +15,7 @@ export function CustomFonts() {
                 {
                     "@font-face": {
                         fontFamily: "Lato",
-                        src: `url('./public/fonts/Lato-Regular.ttf') format('truetype')`,
+                        src: `url('/fonts/Lato-Regular.ttf') format('truetype')`,
                         fontWeight: 400,
                         fontStyle: "normal",
                     },
@@ -23,7 +23,7 @@ export function CustomFonts() {
                 {
                     "@font-face": {
                         fontFamily: "Carter One",
-                        src: `url('./public/fonts/CarterOne-Regular.ttf') format('truetype')`,
+                        src: `url('/fonts/CarterOne-Regular.ttf') format('truetype')`,
                         fontWeight: 400,
                         fontStyle: "normal",
                     },
