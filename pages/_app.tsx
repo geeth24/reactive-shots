@@ -23,6 +23,7 @@ export default function App(props: AppProps) {
                     /** Put your mantine theme override here */
                     fontFamily: "Lato, sans-serif",
                     headings: { fontFamily: "Greycliff CF, sans-serif" },
+                    colorScheme: "dark",
                 }}
             >
                 <CustomFonts />
