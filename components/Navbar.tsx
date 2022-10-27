@@ -9,15 +9,13 @@ import {
     Transition,
     Paper,
     Text,
-    // Avatar,
+    useMantineColorScheme,
 } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
-import {
-    IconBrandTwitter,
-    IconBrandYoutube,
-    IconBrandInstagram,
-} from "@tabler/icons"
+import { IconBrandInstagram, IconSun, IconMoonStars } from "@tabler/icons"
 // import { MantineLogo } from "@mantine/ds"
+
+import { Link, animateScroll as scroll } from "react-scroll"
 
 const useStyles = createStyles((theme) => ({
     inner: {
@@ -36,7 +34,7 @@ const useStyles = createStyles((theme) => ({
         top: 60,
         left: 0,
         right: 0,
-        zIndex: 0,
+        zIndex: 999,
         borderTopRightRadius: 0,
         borderTopLeftRadius: 0,
         borderTopWidth: 0,
@@ -82,6 +80,7 @@ const useStyles = createStyles((theme) => ({
             theme.colorScheme === "dark"
                 ? theme.colors.dark[0]
                 : theme.colors.gray[7],
+
         fontSize: theme.fontSizes.sm,
         fontWeight: 500,
 
@@ -102,11 +101,11 @@ const useStyles = createStyles((theme) => ({
         "&, &:hover": {
             backgroundColor: theme.fn.variant({
                 variant: "light",
-                color: theme.primaryColor,
+                color: "red",
             }).background,
             color: theme.fn.variant({
                 variant: "light",
-                color: theme.primaryColor,
+                color: "red",
             }).color,
         },
     },
@@ -122,23 +121,41 @@ export function Navbar({ links }: NavbarProps) {
     const { classes, cx } = useStyles()
 
     const items = links.map((link) => (
-        <a
-            key={link.label}
-            href={link.link}
-            className={cx(classes.link, {
-                [classes.linkActive]: active === link.link,
-            })}
-            onClick={(event) => {
-                event.preventDefault()
+        <Link
+            key={link.link}
+            to={link.link}
+            spy={true}
+            smooth={true}
+            offset={-50}
+            duration={500}
+            className={cx(
+                classes.link,
+                active === link.link && classes.linkActive
+            )}
+            onClick={() => {
                 setActive(link.link)
+                toggle()
             }}
+            style={{ cursor: "pointer" }}
         >
             {link.label}
-        </a>
+        </Link>
     ))
 
+    const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+    const dark = colorScheme === "dark"
+
     return (
-        <Header height={56} mb={120}>
+        <Header
+            height={56}
+            style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                right: 0,
+                zIndex: 999,
+            }}
+        >
             <Container className={classes.inner}>
                 <Burger
                     opened={opened}
@@ -172,9 +189,14 @@ export function Navbar({ links }: NavbarProps) {
                         weight={700}
                         color="red"
                         sx={{
-                            fontFamily: "Lato",
+                            fontFamily: "Carter One",
                         }}
                         transform="uppercase"
+                        onClick={() => {
+                            scroll.scrollToTop()
+                            setActive(links[0].link)
+                        }}
+                        style={{ cursor: "pointer" }}
                     >
                         Reactive Shots
                     </Text>
@@ -186,14 +208,28 @@ export function Navbar({ links }: NavbarProps) {
                     position="right"
                     noWrap
                 >
-                    <ActionIcon size="lg">
-                        <IconBrandTwitter size={18} stroke={1.5} />
-                    </ActionIcon>
-                    <ActionIcon size="lg">
-                        <IconBrandYoutube size={18} stroke={1.5} />
-                    </ActionIcon>
-                    <ActionIcon size="lg">
+                    <ActionIcon
+                        size="lg"
+                        component="a"
+                        href="https://instagram.com/reactiveshots"
+                        //open in new tab
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        color={dark ? "gray" : "red"}
+                    >
                         <IconBrandInstagram size={18} stroke={1.5} />
+                    </ActionIcon>
+                    <ActionIcon
+                        size="lg"
+                        color="red"
+                        onClick={() => toggleColorScheme()}
+                        title="Toggle color scheme"
+                    >
+                        {dark ? (
+                            <IconSun size={18} />
+                        ) : (
+                            <IconMoonStars size={18} />
+                        )}
                     </ActionIcon>
                 </Group>
             </Container>

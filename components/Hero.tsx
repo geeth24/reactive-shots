@@ -73,7 +73,7 @@ export function Hero() {
     const autoplay = useRef(Autoplay({ delay: 4000 }))
 
     return (
-        <div className={classes.root}>
+        <div className={classes.root} id="home">
             <Carousel
                 mx="auto"
                 height="100vh"
@@ -95,6 +95,10 @@ export function Hero() {
                         "&[data-inactive]": {
                             opacity: 0,
                             cursor: "default",
+                        },
+
+                        "@media (max-width: 600px)": {
+                            display: "none",
                         },
                     },
                 }}

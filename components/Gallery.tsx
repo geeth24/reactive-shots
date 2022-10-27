@@ -1,130 +1,172 @@
 import React from "react"
 //@ts-ignore
-import { LightgalleryProvider, LightgalleryItem } from "react-lightgallery"
-import "lightgallery.js/dist/css/lightgallery.css"
+// import { LightgalleryProvider, LightgalleryItem } from "react-lightgallery"
+// import "lightgallery.js/dist/css/lightgallery.css"
 import { Container, Grid, Image, Tabs, Text } from "@mantine/core"
 import { motion } from "framer-motion"
+import "lightgallery/css/lightgallery.css"
+import "lightgallery/css/lg-zoom.css"
+import "lightgallery/css/lg-thumbnail.css"
 
-interface GalleryProps {
-    image: string
-    title: string
-    url: string
-}
-const PhotoItem = ({ image, title, url }: GalleryProps) => (
-    <div>
-        <LightgalleryItem group="any" src={image}>
-            <Image src={image} alt={title} />
-        </LightgalleryItem>
-    </div>
-)
+// import plugins if you need
+import lgThumbnail from "lightgallery/plugins/thumbnail"
+import lgZoom from "lightgallery/plugins/zoom"
+import LightGallery from "lightgallery/react"
+
 export function Gallery() {
+    const onInit = () => {
+        console.log("lightGallery has been initialized")
+    }
     return (
-        <LightgalleryProvider
-            lightgallerySettings={
-                {
-                    // settings: https://sachinchoolur.github.io/lightgallery.js/docs/api.html
-                }
-            }
-            galleryClassName="my_custom_classname"
-        >
-            <Container size="lg">
-                <Tabs defaultValue="landscape" color="red">
-                    <Tabs.List position="center">
-                        <Tabs.Tab value="landscape">
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                transition={{ duration: 0.5 }}
-                            >
-                                <Text
-                                    size="xl"
-                                    weight={700}
-                                    color="red"
-                                    sx={{
-                                        fontFamily: "Carter One",
-                                    }}
-                                    transform="uppercase"
-                                >
-                                    Landscape
-                                </Text>
-                            </motion.div>
-                        </Tabs.Tab>
-                        <Tabs.Tab value="portrait">
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                transition={{ duration: 0.5 }}
-                            >
-                                <Text
-                                    size="xl"
-                                    weight={700}
-                                    color="red"
-                                    sx={{
-                                        fontFamily: "Carter One",
-                                    }}
-                                    transform="uppercase"
-                                >
-                                    Portrait
-                                </Text>
-                            </motion.div>
-                        </Tabs.Tab>
-                        {/* <Tabs.Tab value="event">
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                transition={{ duration: 0.5 }}
+        <Container size="lg" id="gallery">
+            <Tabs defaultValue="portrait" color="red">
+                <Tabs.List position="center">
+                    <Tabs.Tab value="event">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <Text
+                                size="xl"
+                                weight={700}
+                                color="red"
+                                sx={{
+                                    fontFamily: "Carter One",
+                                }}
+                                transform="uppercase"
                             >
                                 Event
-                            </motion.div>
-                        </Tabs.Tab> */}
-                    </Tabs.List>
-                    <Tabs.Panel value="landscape" pt="xs">
-                        <motion.div
-                            initial={{ opacity: 0, y: 100 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            <Grid>
-                                {[...Array(11)].map((_, i) => (
-                                    <Grid.Col key={i} span={4}>
-                                        <PhotoItem
-                                            key={i}
-                                            image={`/landscape/Landscape${
-                                                i + 1
-                                            }.jpeg`}
-                                            title="Landscape"
-                                            url="/landscape"
-                                        />
-                                    </Grid.Col>
-                                ))}
-                            </Grid>
+                            </Text>
                         </motion.div>
-                    </Tabs.Panel>
+                    </Tabs.Tab>
 
-                    <Tabs.Panel value="portrait" pt="xs">
+                    <Tabs.Tab value="portrait">
                         <motion.div
-                            initial={{ opacity: 0, y: 100 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
                             transition={{ duration: 0.5 }}
                         >
-                            <Grid>
-                                {[...Array(22)].map((_, i) => (
-                                    <Grid.Col key={i} span={4}>
-                                        <PhotoItem
-                                            key={i}
-                                            image={`/portrait/Portrait${
-                                                i + 1
-                                            }.jpeg`}
-                                            title="Portrait"
-                                            url="/portrait"
-                                        />
-                                    </Grid.Col>
-                                ))}
-                            </Grid>
+                            <Text
+                                size="xl"
+                                weight={700}
+                                color="red"
+                                sx={{
+                                    fontFamily: "Carter One",
+                                }}
+                                transform="uppercase"
+                            >
+                                Portrait
+                            </Text>
                         </motion.div>
-                    </Tabs.Panel>
-                </Tabs>
-            </Container>
-        </LightgalleryProvider>
+                    </Tabs.Tab>
+                    <Tabs.Tab value="landscape">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <Text
+                                size="xl"
+                                weight={700}
+                                color="red"
+                                sx={{
+                                    fontFamily: "Carter One",
+                                }}
+                                transform="uppercase"
+                            >
+                                Landscape
+                            </Text>
+                        </motion.div>
+                    </Tabs.Tab>
+                </Tabs.List>
+                <Tabs.Panel value="event" pt="xs">
+                    <motion.div
+                        initial={{ opacity: 0, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <LightGallery
+                            onInit={onInit}
+                            speed={500}
+                            plugins={[lgThumbnail, lgZoom]}
+                            licenseKey="YOUR_KEY"
+                            elementClassNames="custom-wrapper-class"
+                        >
+                            {[...Array(7)].map((_, i) => (
+                                <a
+                                    href={`/event/Event${i + 1}.jpeg`}
+                                    data-sub-html={`<h4>Event ${i + 1}</h4>`}
+                                >
+                                    <Image
+                                        src={`/event/Event${i + 1}.jpeg`}
+                                        alt="event"
+                                    />
+                                </a>
+                            ))}
+                        </LightGallery>
+                    </motion.div>
+                </Tabs.Panel>
+                <Tabs.Panel value="landscape" pt="xs">
+                    <motion.div
+                        initial={{ opacity: 0, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <LightGallery
+                            onInit={onInit}
+                            speed={500}
+                            plugins={[lgThumbnail, lgZoom]}
+                            licenseKey="YOUR_KEY"
+                            elementClassNames="custom-wrapper-class"
+                        >
+                            {[...Array(11)].map((_, i) => (
+                                <a
+                                    href={`/landscape/Landscape${i + 1}.jpeg`}
+                                    data-sub-html={`<h4>Landscape ${
+                                        i + 1
+                                    }</h4>`}
+                                >
+                                    <Image
+                                        src={`/landscape/Landscape${
+                                            i + 1
+                                        }.jpeg`}
+                                        alt="landscape"
+                                    />
+                                </a>
+                            ))}
+                        </LightGallery>
+                    </motion.div>
+                </Tabs.Panel>
+
+                <Tabs.Panel value="portrait" pt="xs">
+                    <motion.div
+                        initial={{ opacity: 0, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <LightGallery
+                            onInit={onInit}
+                            speed={500}
+                            plugins={[lgThumbnail, lgZoom]}
+                            licenseKey="YOUR_KEY"
+                            elementClassNames="custom-wrapper-class"
+                        >
+                            {[...Array(12)].map((_, i) => (
+                                <a
+                                    href={`/portrait/Portrait${i + 1}.jpeg`}
+                                    data-sub-html={`<h4>Portrait ${i + 1}</h4>`}
+                                >
+                                    <Image
+                                        src={`/portrait/Portrait${i + 1}.jpeg`}
+                                        alt="portrait"
+                                    />
+                                </a>
+                            ))}
+                        </LightGallery>
+                    </motion.div>
+                </Tabs.Panel>
+            </Tabs>
+        </Container>
     )
 }
