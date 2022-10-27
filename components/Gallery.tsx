@@ -97,6 +97,7 @@ export function Gallery() {
                                 <a
                                     href={`/event/Event${i + 1}.jpeg`}
                                     data-sub-html={`<h4>Event ${i + 1}</h4>`}
+                                    key={i + 1}
                                 >
                                     <Image
                                         src={`/event/Event${i + 1}.jpeg`}
@@ -126,6 +127,7 @@ export function Gallery() {
                                     data-sub-html={`<h4>Landscape ${
                                         i + 1
                                     }</h4>`}
+                                    key={i + 1}
                                 >
                                     <Image
                                         src={`/landscape/Landscape${
@@ -156,6 +158,7 @@ export function Gallery() {
                                 <a
                                     href={`/portrait/Portrait${i + 1}.jpeg`}
                                     data-sub-html={`<h4>Portrait ${i + 1}</h4>`}
+                                    key={i + 1}
                                 >
                                     <Image
                                         src={`/portrait/Portrait${i + 1}.jpeg`}
