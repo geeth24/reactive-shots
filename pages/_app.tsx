@@ -7,7 +7,10 @@ export default function App(props: AppProps) {
     const { Component, pageProps } = props
 
     return (
-        <>
+        <div
+            //disable scrollbars
+         
+        >
             <Head>
                 <title>Reactive Shots</title>
                 <meta
@@ -24,11 +27,14 @@ export default function App(props: AppProps) {
                     fontFamily: "Lato, sans-serif",
                     headings: { fontFamily: "Greycliff CF, sans-serif" },
                     colorScheme: "dark",
+                    //dsiable scrollbars
+                
+                    
                 }}
             >
                 <CustomFonts />
                 <Component {...pageProps} />
             </MantineProvider>
-        </>
+        </div>
     )
 }

@@ -8,7 +8,7 @@ import {
 import { useRef } from "react"
 import { Carousel } from "@mantine/carousel"
 import Autoplay from "embla-carousel-autoplay"
-
+import { motion } from "framer-motion"
 const useStyles = createStyles((theme) => ({
     root: {
         position: "relative",
@@ -70,7 +70,7 @@ const useStyles = createStyles((theme) => ({
 
 export function Hero() {
     const { classes } = useStyles()
-    const autoplay = useRef(Autoplay({ delay: 2000 }))
+    const autoplay = useRef(Autoplay({ delay: 4000 }))
 
     return (
         <div className={classes.root}>
@@ -102,12 +102,12 @@ export function Hero() {
                 <Carousel.Slide>
                     <BackgroundImage
                         className={classes.background}
-                        src="/RSLogo.jpg"
+                        src="/RSLogo.jpeg"
                         sx={{
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/RSLogo.jpg')",
+                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/RSLogo.jpeg')",
                             height: "100vh",
                         }}
                     ></BackgroundImage>
@@ -115,12 +115,12 @@ export function Hero() {
                 <Carousel.Slide>
                     <BackgroundImage
                         className={classes.background}
-                        src="/IMG_0501.jpg"
+                        src="/hero/IMG_0501.jpeg"
                         sx={{
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/IMG_0501.jpg')",
+                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/IMG_0501.jpeg')",
                             height: "100vh",
                         }}
                     ></BackgroundImage>
@@ -129,12 +129,12 @@ export function Hero() {
                 <Carousel.Slide>
                     <BackgroundImage
                         className={classes.background}
-                        src="/Vegas-10.jpg"
+                        src="/hero/Vegas-10.jpeg"
                         sx={{
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/Vegas-10.jpg')",
+                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/Vegas-10.jpeg')",
                             height: "100vh",
                         }}
                     ></BackgroundImage>
@@ -142,12 +142,12 @@ export function Hero() {
                 <Carousel.Slide>
                     <BackgroundImage
                         className={classes.background}
-                        src="/No Prom-107.jpg"
+                        src="/hero/No Prom-107.jpeg"
                         sx={{
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/No Prom-107.jpg')",
+                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/No Prom-107.jpeg')",
                             height: "100vh",
                         }}
                     ></BackgroundImage>
@@ -155,12 +155,12 @@ export function Hero() {
                 <Carousel.Slide>
                     <BackgroundImage
                         className={classes.background}
-                        src="/photographer/ReactShots 4-min.jpg"
+                        src="/hero/ReactShots 4-min.jpeg"
                         sx={{
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/photographer/ReactShots 4-min.jpg')",
+                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/ReactShots 4-min.jpeg')",
                             height: "100vh",
                         }}
                     ></BackgroundImage>
@@ -168,12 +168,12 @@ export function Hero() {
                 <Carousel.Slide>
                     <BackgroundImage
                         className={classes.background}
-                        src="/photographer/ReactShots 15-min.jpg"
+                        src="/hero/ReactShots 15-min.jpeg"
                         sx={{
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/photographer/ReactShots 15-min.jpg')",
+                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/ReactShots 15-min.jpeg')",
                             height: "100vh",
                         }}
                     ></BackgroundImage>
@@ -181,12 +181,12 @@ export function Hero() {
                 <Carousel.Slide>
                     <BackgroundImage
                         className={classes.background}
-                        src="/photographer/ReactShots 24-min.jpg"
+                        src="/hero/ReactShots 24-min.jpeg"
                         sx={{
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/photographer/ReactShots 24-min.jpg')",
+                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/ReactShots 24-min.jpeg')",
                             height: "100vh",
                         }}
                     ></BackgroundImage>
@@ -194,22 +194,34 @@ export function Hero() {
                 <Carousel.Slide>
                     <BackgroundImage
                         className={classes.background}
-                        src="/photographer/ReactShots 25-min.jpg"
+                        src="/hero/ReactShots 25-min.jpeg"
                         sx={{
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/photographer/ReactShots 25-min.jpg')",
+                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/ReactShots 25-min.jpeg')",
                             height: "100vh",
                         }}
                     ></BackgroundImage>
                 </Carousel.Slide>
             </Carousel>
             <Container className={classes.container}>
-                <Title className={classes.title}>Reactive Shots</Title>
-                <Text className={classes.subtitle}>
-                    Event, Portrait, and Landscape Photography
-                </Text>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                >
+                    <Title className={classes.title}>Reactive Shots</Title>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 1 }}
+                >
+                    <Text className={classes.subtitle}>
+                        Event, Portrait, and Landscape Photography
+                    </Text>
+                </motion.div>
             </Container>
         </div>
     )

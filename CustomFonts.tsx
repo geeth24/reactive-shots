@@ -28,6 +28,13 @@ export function CustomFonts() {
                         fontStyle: "normal",
                     },
                 },
+                //disable scrollbars
+                {
+                    "::-webkit-scrollbar": {
+                        width: 0,
+                        height: 0,
+                    },
+                },
             ]}
         />
     )
