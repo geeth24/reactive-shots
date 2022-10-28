@@ -13,11 +13,22 @@ import {
 import axios from "axios"
 import React from "react"
 import { showNotification } from "@mantine/notifications"
+import { motion } from "framer-motion"
 
 const useStyles = createStyles((theme) => {
     const BREAKPOINT = theme.fn.smallerThan("sm")
 
     return {
+        root: {
+            backgroundColor:
+                theme.colorScheme === "dark"
+                    ? theme.colors.dark[5]
+                    : theme.colors.gray[0],
+            padding: theme.spacing.xl,
+            width: "100%",
+        },
+
+        conatiner: {},
         wrapper: {
             display: "flex",
             backgroundColor:
@@ -151,98 +162,130 @@ function Contact() {
     }
 
     return (
-        <Container size="md" mt="lg" mb="lg" id="contact">
-            <Text
-                size={25}
-                weight={700}
-                transform="uppercase"
-                align="center"
-                style={{ fontFamily: "Carter One, sans-serif" }}
-                color="red"
+        <div className={classes.root}>
+            <Container
+                size="md"
+                mb="lg"
+                id="contact"
+                className={classes.conatiner}
             >
-                Contact
-            </Text>
-            <div style={{ position: "relative" }}>
-                <LoadingOverlay
-                    visible={isSubmitting}
-                    overlayBlur={2}
-                    loaderProps={{ color: "red", variant: "dots" }}
-                />
-                <Paper shadow="md" radius="lg">
-                    <div className={classes.wrapper}>
-                        <form
-                            className={classes.form}
-                            onSubmit={(event) => event.preventDefault()}
-                        >
-                            <Text
-                                size="lg"
-                                weight={700}
-                                className={classes.title}
-                            >
-                                Get in touch
-                            </Text>
-
-                            <div className={classes.fields}>
-                                <SimpleGrid
-                                    cols={2}
-                                    breakpoints={[{ maxWidth: "sm", cols: 1 }]}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <Text
+                        size={25}
+                        weight={700}
+                        transform="uppercase"
+                        align="center"
+                        style={{ fontFamily: "Carter One, sans-serif" }}
+                        color="red"
+                        mb="md"
+                    >
+                        Contact
+                    </Text>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <div style={{ position: "relative" }}>
+                        <LoadingOverlay
+                            visible={isSubmitting}
+                            overlayBlur={2}
+                            loaderProps={{ color: "red", variant: "dots" }}
+                        />
+                        <Paper shadow="md" radius="lg">
+                            <div className={classes.wrapper}>
+                                <form
+                                    className={classes.form}
+                                    onSubmit={(event) => event.preventDefault()}
                                 >
-                                    <TextInput
-                                        label="Your name"
-                                        placeholder="Your name"
-                                        value={name}
-                                        onChange={(event) =>
-                                            setName(event.currentTarget.value)
-                                        }
-                                    />
-                                    <TextInput
-                                        label="Your email"
-                                        placeholder="hello@reactiveshots.com"
-                                        required
-                                        value={email}
-                                        onChange={(event) =>
-                                            setEmail(event.currentTarget.value)
-                                        }
-                                    />
-                                </SimpleGrid>
-
-                                <TextInput
-                                    mt="md"
-                                    label="Subject"
-                                    placeholder="Subject"
-                                    value={subject}
-                                    onChange={(event) =>
-                                        setSubject(event.currentTarget.value)
-                                    }
-                                />
-
-                                <Textarea
-                                    mt="md"
-                                    label="Your message"
-                                    placeholder="Please include all relevant information"
-                                    minRows={3}
-                                    required
-                                    value={message}
-                                    onChange={(event) =>
-                                        setMessage(event.currentTarget.value)
-                                    }
-                                />
-
-                                <Group position="right" mt="md">
-                                    <Button
-                                        type="submit"
-                                        className={classes.control}
-                                        onClick={handleSubmit}
+                                    <Text
+                                        size="lg"
+                                        weight={700}
+                                        className={classes.title}
                                     >
-                                        Send message
-                                    </Button>
-                                </Group>
+                                        Get in touch
+                                    </Text>
+
+                                    <div className={classes.fields}>
+                                        <SimpleGrid
+                                            cols={2}
+                                            breakpoints={[
+                                                { maxWidth: "sm", cols: 1 },
+                                            ]}
+                                        >
+                                            <TextInput
+                                                label="Your name"
+                                                placeholder="Your name"
+                                                value={name}
+                                                onChange={(event) =>
+                                                    setName(
+                                                        event.currentTarget
+                                                            .value
+                                                    )
+                                                }
+                                            />
+                                            <TextInput
+                                                label="Your email"
+                                                placeholder="hello@reactiveshots.com"
+                                                required
+                                                value={email}
+                                                onChange={(event) =>
+                                                    setEmail(
+                                                        event.currentTarget
+                                                            .value
+                                                    )
+                                                }
+                                            />
+                                        </SimpleGrid>
+
+                                        <TextInput
+                                            mt="md"
+                                            label="Subject"
+                                            placeholder="Subject"
+                                            value={subject}
+                                            onChange={(event) =>
+                                                setSubject(
+                                                    event.currentTarget.value
+                                                )
+                                            }
+                                        />
+
+                                        <Textarea
+                                            mt="md"
+                                            label="Your message"
+                                            placeholder="Please include all relevant information"
+                                            minRows={3}
+                                            required
+                                            value={message}
+                                            onChange={(event) =>
+                                                setMessage(
+                                                    event.currentTarget.value
+                                                )
+                                            }
+                                        />
+
+                                        <Group position="right" mt="md">
+                                            <Button
+                                                type="submit"
+                                                className={classes.control}
+                                                onClick={handleSubmit}
+                                            >
+                                                Send message
+                                            </Button>
+                                        </Group>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        </Paper>
                     </div>
-                </Paper>
-            </div>
-        </Container>
+                </motion.div>
+            </Container>
+        </div>
     )
 }
 
