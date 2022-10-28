@@ -115,7 +115,7 @@ interface NavbarProps {
     links: { link: string; label: string }[]
 }
 
-export function Navbar({ links }: NavbarProps) {
+function Navbar({ links }: NavbarProps) {
     const [opened, { toggle }] = useDisclosure(false)
     const [active, setActive] = useState(links[0].link)
     const { classes, cx } = useStyles()
@@ -236,3 +236,5 @@ export function Navbar({ links }: NavbarProps) {
         </Header>
     )
 }
+
+export default Navbar

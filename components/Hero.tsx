@@ -68,7 +68,7 @@ const useStyles = createStyles((theme) => ({
     },
 }))
 
-export function Hero() {
+function Hero() {
     const { classes } = useStyles()
     const autoplay = useRef(Autoplay({ delay: 4000 }))
 
@@ -230,3 +230,5 @@ export function Hero() {
         </div>
     )
 }
+
+export default Hero

@@ -8,7 +8,11 @@ import {
     SimpleGrid,
     createStyles,
     Container,
+    LoadingOverlay,
 } from "@mantine/core"
+import axios from "axios"
+import React from "react"
+import { showNotification } from "@mantine/notifications"
 
 const useStyles = createStyles((theme) => {
     const BREAKPOINT = theme.fn.smallerThan("sm")
@@ -88,8 +92,63 @@ const useStyles = createStyles((theme) => {
     }
 })
 
-export function Contact() {
+function Contact() {
     const { classes } = useStyles()
+
+    const [name, setName] = React.useState("")
+    const [email, setEmail] = React.useState("")
+    const [subject, setSubject] = React.useState("")
+    const [message, setMessage] = React.useState("")
+    const [isSubmitting, setIsSubmitting] = React.useState(false)
+
+    const handleSubmit = async (e: { preventDefault: () => void }) => {
+        e.preventDefault()
+        if (name === "" || email === "" || message === "") {
+            showNotification({
+                title: "Error",
+                message: "Please fill out all fields",
+                color: "red",
+                radius: "md",
+            })
+
+            return
+        } else {
+            setIsSubmitting(true)
+            showNotification({
+                title: "Sending",
+                message: "Please wait...",
+                color: "red",
+                radius: "md",
+            })
+            await axios.post(
+                "https://mailer.geethg.com/reactiveshots/send",
+                new URLSearchParams({
+                    name: name,
+                    email: email,
+                    subject: subject,
+                    message: message,
+                }),
+                {
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                }
+            )
+            showNotification({
+                title: "Success",
+                message: "Your message has been sent",
+                color: "green",
+                radius: "md",
+            })
+
+            setIsSubmitting(false)
+
+            setName("")
+            setEmail("")
+            setSubject("")
+            setMessage("")
+        }
+    }
 
     return (
         <Container size="md" mt="lg" mb="lg" id="contact">
@@ -103,59 +162,88 @@ export function Contact() {
             >
                 Contact
             </Text>
-
-            <Paper shadow="md" radius="lg">
-                <div className={classes.wrapper}>
-                    <form
-                        className={classes.form}
-                        onSubmit={(event) => event.preventDefault()}
-                    >
-                        <Text size="lg" weight={700} className={classes.title}>
-                            Get in touch
-                        </Text>
-
-                        <div className={classes.fields}>
-                            <SimpleGrid
-                                cols={2}
-                                breakpoints={[{ maxWidth: "sm", cols: 1 }]}
+            <div style={{ position: "relative" }}>
+                <LoadingOverlay
+                    visible={isSubmitting}
+                    overlayBlur={2}
+                    loaderProps={{ color: "red", variant: "dots" }}
+                />
+                <Paper shadow="md" radius="lg">
+                    <div className={classes.wrapper}>
+                        <form
+                            className={classes.form}
+                            onSubmit={(event) => event.preventDefault()}
+                        >
+                            <Text
+                                size="lg"
+                                weight={700}
+                                className={classes.title}
                             >
-                                <TextInput
-                                    label="Your name"
-                                    placeholder="Your name"
-                                />
-                                <TextInput
-                                    label="Your email"
-                                    placeholder="hello@reactiveshots.com"
-                                    required
-                                />
-                            </SimpleGrid>
+                                Get in touch
+                            </Text>
 
-                            <TextInput
-                                mt="md"
-                                label="Subject"
-                                placeholder="Subject"
-                                required
-                            />
-
-                            <Textarea
-                                mt="md"
-                                label="Your message"
-                                placeholder="Please include all relevant information"
-                                minRows={3}
-                            />
-
-                            <Group position="right" mt="md">
-                                <Button
-                                    type="submit"
-                                    className={classes.control}
+                            <div className={classes.fields}>
+                                <SimpleGrid
+                                    cols={2}
+                                    breakpoints={[{ maxWidth: "sm", cols: 1 }]}
                                 >
-                                    Send message
-                                </Button>
-                            </Group>
-                        </div>
-                    </form>
-                </div>
-            </Paper>
+                                    <TextInput
+                                        label="Your name"
+                                        placeholder="Your name"
+                                        value={name}
+                                        onChange={(event) =>
+                                            setName(event.currentTarget.value)
+                                        }
+                                    />
+                                    <TextInput
+                                        label="Your email"
+                                        placeholder="hello@reactiveshots.com"
+                                        required
+                                        value={email}
+                                        onChange={(event) =>
+                                            setEmail(event.currentTarget.value)
+                                        }
+                                    />
+                                </SimpleGrid>
+
+                                <TextInput
+                                    mt="md"
+                                    label="Subject"
+                                    placeholder="Subject"
+                                    value={subject}
+                                    onChange={(event) =>
+                                        setSubject(event.currentTarget.value)
+                                    }
+                                />
+
+                                <Textarea
+                                    mt="md"
+                                    label="Your message"
+                                    placeholder="Please include all relevant information"
+                                    minRows={3}
+                                    required
+                                    value={message}
+                                    onChange={(event) =>
+                                        setMessage(event.currentTarget.value)
+                                    }
+                                />
+
+                                <Group position="right" mt="md">
+                                    <Button
+                                        type="submit"
+                                        className={classes.control}
+                                        onClick={handleSubmit}
+                                    >
+                                        Send message
+                                    </Button>
+                                </Group>
+                            </div>
+                        </form>
+                    </div>
+                </Paper>
+            </div>
         </Container>
     )
 }
+
+export default Contact

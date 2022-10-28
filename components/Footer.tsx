@@ -35,7 +35,7 @@ const useStyles = createStyles((theme) => ({
     },
 }))
 
-export function Footer() {
+function Footer() {
     const { classes } = useStyles()
 
     return (
@@ -106,7 +106,7 @@ export function Footer() {
                             size="sm"
                             color="red"
                             style={{ marginTop: -2 }}
-                            href="https://www.framer.com/"
+                            href="https://www.framer.com/motion"
                         >
                             <IconBrandFramer />
                         </ActionIcon>
@@ -122,7 +122,6 @@ export function Footer() {
                                 window.open("https://geethg.com")
                             }}
                             style={{ cursor: "pointer" }}
-                            
                         >
                             Geeth Gunnampalli
                         </Text>
@@ -132,3 +131,5 @@ export function Footer() {
         </div>
     )
 }
+
+export default Footer

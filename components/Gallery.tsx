@@ -13,7 +13,7 @@ import lgThumbnail from "lightgallery/plugins/thumbnail"
 import lgZoom from "lightgallery/plugins/zoom"
 import LightGallery from "lightgallery/react"
 
-export function Gallery() {
+function Gallery() {
     const onInit = () => {
         console.log("lightGallery has been initialized")
     }
@@ -173,3 +173,5 @@ export function Gallery() {
         </Container>
     )
 }
+
+export default Gallery

@@ -6,13 +6,27 @@ import {
     ColorScheme,
 } from "@mantine/core"
 import { CustomFonts } from "../CustomFonts"
+import { NotificationsProvider } from "@mantine/notifications"
 import { useState } from "react"
+import { GetServerSidePropsContext } from "next"
+import { getCookie, setCookie } from "cookies-next"
+import { useHotkeys } from "@mantine/hooks"
 
-export default function App(props: AppProps) {
+export default function App(props: AppProps & { colorScheme: ColorScheme }) {
     const { Component, pageProps } = props
-    const [colorScheme, setColorScheme] = useState<ColorScheme>("dark")
-    const toggleColorScheme = (value?: ColorScheme) =>
-        setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"))
+    const [colorScheme, setColorScheme] = useState<ColorScheme>(
+        props.colorScheme
+    )
+    const toggleColorScheme = (value?: ColorScheme) => {
+        const nextColorScheme =
+            value || (colorScheme === "dark" ? "light" : "dark")
+        setColorScheme(nextColorScheme)
+        // when color scheme is updated save it to cookie
+        setCookie("mantine-color-scheme", nextColorScheme, {
+            maxAge: 60 * 60 * 24 * 30,
+        })
+    }
+      useHotkeys([["mod+J", () => toggleColorScheme()]])
 
     return (
         <div
@@ -42,10 +56,16 @@ export default function App(props: AppProps) {
                         //dsiable scrollbars
                     }}
                 >
-                    <CustomFonts />
-                    <Component {...pageProps} />
+                    <NotificationsProvider>
+                        <CustomFonts />
+                        <Component {...pageProps} />
+                    </NotificationsProvider>
                 </MantineProvider>
             </ColorSchemeProvider>
         </div>
     )
 }
+App.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
+    // get color scheme from cookie
+    colorScheme: getCookie("mantine-color-scheme", ctx) || "light",
+})
