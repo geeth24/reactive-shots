@@ -10,6 +10,7 @@ import {
     Paper,
     Text,
     useMantineColorScheme,
+    Image,
 } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
 import { IconBrandInstagram, IconSun, IconMoonStars } from "@tabler/icons"
@@ -184,6 +185,11 @@ function Navbar({ links }: NavbarProps) {
                 </Transition>
                 {/* <MantineLogo size={28} /> */}
                 <Group spacing={5} position="center">
+                    <Image
+                        src={dark ? "/Camera.png" : "/CameraLight.png"}
+                        width={25}
+                        height={25}
+                    />
                     <Text
                         size="xl"
                         weight={700}
