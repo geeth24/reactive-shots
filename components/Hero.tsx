@@ -4,6 +4,7 @@ import {
     Title,
     Text,
     BackgroundImage,
+    Image,
 } from "@mantine/core"
 import { useRef } from "react"
 import { Carousel } from "@mantine/carousel"
@@ -214,6 +215,19 @@ function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
+                >
+                    <Image
+                        src="/CameraWhite.png"
+                        alt="React Shots Logo"
+                        width={250}
+                        height={250}
+                        mb="md"
+                    />
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.7 }}
                 >
                     <Title className={classes.title}>Reactive Shots</Title>
                 </motion.div>

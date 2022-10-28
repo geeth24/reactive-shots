@@ -10,7 +10,23 @@ export default class _Document extends Document {
         return (
             <Html>
                 <Head>
-                    <link rel="icon" href="/CircleRS.png" />
+                    <link rel="icon" href="/CameraLight.png" />
+                    <link rel="apple-touch-icon" href="/CameraLight.png" />
+                    <meta property="og:title" content="Rad Soft, Inc." />
+                    <meta
+                        name="image"
+                        property="og:image"
+                        content="/RSLogo.jpg"
+                    />
+                    <meta name="author" content="Geeth Gunnampalli" />
+                    <meta
+                        property="og:description"
+                        content="Event, Portrait, and Landscape Photography"
+                    />
+                    <meta
+                        property="og:url"
+                        content="https://reactiveshots.com"
+                    />
                 </Head>
                 <body>
                     <Main />

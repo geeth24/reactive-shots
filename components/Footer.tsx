@@ -1,4 +1,12 @@
-import { createStyles, Container, Group, ActionIcon, Text } from "@mantine/core"
+import {
+    createStyles,
+    Container,
+    Group,
+    ActionIcon,
+    Text,
+    useMantineColorScheme,
+    Image,
+} from "@mantine/core"
 import {
     IconBrandNextjs,
     IconBrandMantine,
@@ -37,11 +45,17 @@ const useStyles = createStyles((theme) => ({
 
 function Footer() {
     const { classes } = useStyles()
-
+    const { colorScheme } = useMantineColorScheme()
+    const dark = colorScheme === "dark"
     return (
         <div className={classes.footer}>
             <Container className={classes.inner}>
                 <Group spacing={5} position="center">
+                    <Image
+                        src={dark ? "/Camera.png" : "/CameraLight.png"}
+                        width={25}
+                        height={25}
+                    />
                     <Text
                         size="xl"
                         weight={700}
