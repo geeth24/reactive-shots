@@ -12,7 +12,7 @@ export default class _Document extends Document {
                 <Head>
                     <link rel="icon" href="/CameraLight.png" />
                     <link rel="apple-touch-icon" href="/CameraLight.png" />
-                    <meta property="og:title" content="Rad Soft, Inc." />
+                    <meta property="og:title" content="Reactive Shots" />
                     <meta
                         name="image"
                         property="og:image"
