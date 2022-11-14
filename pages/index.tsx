@@ -14,6 +14,9 @@ const Hero = dynamic(() => import("../components/Hero"), {
 const Gallery = dynamic(() => import("../components/Gallery"), {
     suspense: true,
 })
+const Pricing = dynamic(() => import("../components/Pricing"), {
+    suspense: true,
+})
 const Contact = dynamic(() => import("../components/Contact"), {
     suspense: true,
 })
@@ -50,6 +53,7 @@ export default function Home() {
                     />
                     <Hero />
                     <Gallery />
+                    <Pricing />
                     <Contact />
                     <Footer />
                 </div>

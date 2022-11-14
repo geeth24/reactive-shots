@@ -20,10 +20,10 @@ const useStyles = createStyles((theme) => {
 
     return {
         root: {
-            backgroundColor:
-                theme.colorScheme === "dark"
-                    ? theme.colors.dark[5]
-                    : theme.colors.gray[0],
+            // backgroundColor:
+            //     theme.colorScheme === "dark"
+            //         ? theme.colors.dark[5]
+            //         : theme.colors.gray[0],
             padding: theme.spacing.xl,
             width: "100%",
         },

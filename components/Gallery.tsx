@@ -18,7 +18,7 @@ function Gallery() {
         console.log("lightGallery has been initialized")
     }
     return (
-        <Container size="lg" id="gallery" mb="xl">
+        <Container size="lg" id="gallery" mb="xl" pt={50}>
             <Tabs defaultValue="portrait" color="red">
                 <Tabs.List position="center">
                     <Tabs.Tab value="event">
