@@ -162,11 +162,11 @@ function Contact() {
     }
 
     return (
-        <div className={classes.root}>
+        <div className={classes.root}      id="contact">
             <Container
                 size="md"
                 mb="lg"
-                id="contact"
+           
                 className={classes.conatiner}
             >
                 <motion.div

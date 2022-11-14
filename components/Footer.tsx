@@ -17,11 +17,12 @@ import { animateScroll as scroll } from "react-scroll"
 const useStyles = createStyles((theme) => ({
     footer: {
         marginTop: 120,
-        borderTop: `1px solid ${
-            theme.colorScheme === "dark"
-                ? theme.colors.dark[5]
-                : theme.colors.gray[2]
-        }`,
+        borderImage:
+            "linear-gradient(90deg, rgba(1, 218, 124, 0) 2.69%, rgba(175, 174, 184, 0) 2.7%, rgba(175, 174, 184, 0.21) 50.12%, rgba(175, 174, 184, 0) 96.58%)",
+        borderImageSlice: 1,
+        borderTopWidth: "1.5px",
+        borderTopStyle: "solid",
+        borderTopColor: "transparent",
     },
 
     inner: {

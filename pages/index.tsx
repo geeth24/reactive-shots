@@ -48,6 +48,7 @@ export default function Home() {
                         links={[
                             { link: "home", label: "Home" },
                             { link: "gallery", label: "Gallery" },
+                            { link: "pricing", label: "Pricing" },
                             { link: "contact", label: "Contact" },
                         ]}
                     />

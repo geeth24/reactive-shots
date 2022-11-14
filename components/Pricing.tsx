@@ -119,8 +119,8 @@ function Pricing() {
         </motion.div>
     ))
     return (
-        <div className={classes.root}>
-            <Container size="lg" py="xl" id="pricing">
+        <div className={classes.root} id="pricing">
+            <Container size="lg" py="xl" mb="xl" pt={50}>
                 <Group position="center">
                     <motion.div
                         initial={{ opacity: 0 }}
