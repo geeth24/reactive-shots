@@ -159,12 +159,6 @@ function Navbar({ links }: NavbarProps) {
                 zIndex: 999,
                 backdropFilter: "blur(15px)",
                 backgroundColor: dark ? "#25262bc2" : "#f8f9fac2",
-                borderImage:
-                    "linear-gradient(90deg, rgba(1, 218, 124, 0) 2.69%, rgba(175, 174, 184, 0) 2.7%, rgba(175, 174, 184, 0.21) 50.12%, rgba(175, 174, 184, 0) 96.58%)",
-                borderImageSlice: 1,
-                borderBottomWidth: "1.5px",
-                borderBottomStyle: "solid",
-                borderBottomColor: "transparent",
             }}
         >
             <Container className={classes.inner}>
