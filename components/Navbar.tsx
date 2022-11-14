@@ -159,6 +159,7 @@ function Navbar({ links }: NavbarProps) {
                 zIndex: 999,
                 backdropFilter: "blur(15px)",
                 backgroundColor: dark ? "#25262bc2" : "#f8f9fac2",
+                WebkitBackdropFilter: "blur(15px)",
             }}
         >
             <Container className={classes.inner}>
