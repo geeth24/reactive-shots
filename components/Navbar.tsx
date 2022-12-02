@@ -188,7 +188,7 @@ function Navbar({ links }: NavbarProps) {
                         </Paper>
                     )}
                 </Transition>
-                {/* <MantineLogo size={28} /> */}
+               
                 <Group
                     spacing={5}
                     position="center"

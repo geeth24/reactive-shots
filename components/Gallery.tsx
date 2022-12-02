@@ -12,11 +12,44 @@ import "lightgallery/css/lg-thumbnail.css"
 import lgThumbnail from "lightgallery/plugins/thumbnail"
 import lgZoom from "lightgallery/plugins/zoom"
 import LightGallery from "lightgallery/react"
+import { landscapes, portraits } from "./GallaryData"
 
 function Gallery() {
     const onInit = () => {
         console.log("lightGallery has been initialized")
     }
+
+    const events = [
+        {
+            name: "Event1",
+            event: "Adiki's Housewarming",
+        },
+        {
+            name: "Event2",
+            event: "Adiki's Housewarming",
+        },
+        {
+            name: "Event3",
+            event: "Mammen's Onam 2022",
+        },
+        {
+            name: "Event4",
+            event: "Adiki's Housewarming",
+        },
+        {
+            name: "Event5",
+            event: "Adiki's Housewarming",
+        },
+        {
+            name: "Event6",
+            event: "Coppell High School Senior Sunrise",
+        },
+        {
+            name: "Event7",
+            event: "Coppell High School Senior Sunrise",
+        },
+    ]
+
     return (
         <Container size="lg" id="gallery" mb="xl" pt={50}>
             <Tabs defaultValue="portrait" color="red">
@@ -93,14 +126,13 @@ function Gallery() {
                             licenseKey="YOUR_KEY"
                             elementClassNames="custom-wrapper-class"
                         >
-                            {[...Array(7)].map((_, i) => (
+                            {events.map((item, i) => (
                                 <a
-                                    href={`/event/Event${i + 1}.jpeg`}
-                                    data-sub-html={`<h4>Event ${i + 1}</h4>`}
-                                    key={i + 1}
+                                    href={`/event/${item.name}.jpeg`}
+                                    data-sub-html={`<h4>${item.event}</h4>`}
                                 >
                                     <Image
-                                        src={`/event/Event${i + 1}.jpeg`}
+                                        src={`/event/${item.name}.jpeg`}
                                         alt="event"
                                     />
                                 </a>
@@ -121,12 +153,10 @@ function Gallery() {
                             licenseKey="YOUR_KEY"
                             elementClassNames="custom-wrapper-class"
                         >
-                            {[...Array(11)].map((_, i) => (
+                            {landscapes.map((item, i) => (
                                 <a
                                     href={`/landscape/Landscape${i + 1}.jpeg`}
-                                    data-sub-html={`<h4>Landscape ${
-                                        i + 1
-                                    }</h4>`}
+                                    data-sub-html={`<h4>${item.location}</h4>`}
                                     key={i + 1}
                                 >
                                     <Image
@@ -154,14 +184,14 @@ function Gallery() {
                             licenseKey="YOUR_KEY"
                             elementClassNames="custom-wrapper-class"
                         >
-                            {[...Array(12)].map((_, i) => (
+                            {portraits.map((item, i) => (
                                 <a
-                                    href={`/portrait/Portrait${i + 1}.jpeg`}
-                                    data-sub-html={`<h4>Portrait ${i + 1}</h4>`}
+                                    href={`/portrait/${item.name}.jpeg`}
+                                    data-sub-html={`<h4>${item.model}</h4>`}
                                     key={i + 1}
                                 >
                                     <Image
-                                        src={`/portrait/Portrait${i + 1}.jpeg`}
+                                        src={`/portrait/${item.name}.jpeg`}
                                         alt="portrait"
                                     />
                                 </a>
