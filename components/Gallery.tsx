@@ -114,11 +114,7 @@ function Gallery() {
                     </Tabs.Tab>
                 </Tabs.List>
                 <Tabs.Panel value="event" pt="xs">
-                    <motion.div
-                        initial={{ opacity: 0, y: 100 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                    >
+                    <motion.div>
                         <LightGallery
                             onInit={onInit}
                             speed={500}
@@ -127,26 +123,28 @@ function Gallery() {
                             elementClassNames="custom-wrapper-class"
                         >
                             {events.map((item, i) => (
-                                <a
+                                <motion.a
                                     href={`/event/${item.name}.jpeg`}
                                     data-sub-html={`<h4>${item.event}</h4>`}
                                     key={i + 1}
+                                    initial={{ y: 50, opacity: 0 }}
+                                    whileInView={{ y: 0, opacity: 1 }}
+                                    transition={{
+                                        delay: i * 0.1,
+                                        duration: 0.5,
+                                    }}
                                 >
                                     <Image
                                         src={`/event/${item.name}.jpeg`}
                                         alt={item.name}
                                     />
-                                </a>
+                                </motion.a>
                             ))}
                         </LightGallery>
                     </motion.div>
                 </Tabs.Panel>
                 <Tabs.Panel value="landscape" pt="xs">
-                    <motion.div
-                        initial={{ opacity: 0, y: 100 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                    >
+                    <motion.div>
                         <LightGallery
                             onInit={onInit}
                             speed={500}
@@ -155,16 +153,22 @@ function Gallery() {
                             elementClassNames="custom-wrapper-class"
                         >
                             {landscapes.map((item, i) => (
-                                <a
+                                <motion.a
                                     href={`/landscape/${item.name}.jpeg`}
                                     data-sub-html={`<h4>${item.location}</h4>`}
                                     key={i + 1}
+                                    initial={{ y: 50, opacity: 0 }}
+                                    whileInView={{ y: 0, opacity: 1 }}
+                                    transition={{
+                                        delay: i * 0.1,
+                                        duration: 0.5,
+                                    }}
                                 >
                                     <Image
                                         src={`/landscape/${item.name}.jpeg`}
                                         alt={item.name}
                                     />
-                                </a>
+                                </motion.a>
                             ))}
                         </LightGallery>
                     </motion.div>
@@ -184,16 +188,22 @@ function Gallery() {
                             elementClassNames="custom-wrapper-class"
                         >
                             {portraits.map((item, i) => (
-                                <a
+                                <motion.a
                                     href={`/portrait/${item.name}.jpeg`}
                                     data-sub-html={`<h4>${item.model}</h4>`}
                                     key={i + 1}
+                                    initial={{ y: 50, opacity: 0 }}
+                                    whileInView={{ y: 0, opacity: 1 }}
+                                    transition={{
+                                        delay: i * 0.1,
+                                        duration: 0.5,
+                                    }}
                                 >
                                     <Image
                                         src={`/portrait/${item.name}.jpeg`}
                                         alt={item.name}
                                     />
-                                </a>
+                                </motion.a>
                             ))}
                         </LightGallery>
                     </motion.div>

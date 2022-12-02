@@ -91,19 +91,17 @@ const useStyles = createStyles((theme) => ({
 
 function Pricing() {
     const { classes, theme } = useStyles()
-    const features = mockdata.map((feature) => (
+    const features = mockdata.map((feature, i) => (
         <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{
+                delay: i * 0.1,
+                duration: 0.5,
+            }}
             key={feature.title}
         >
-            <Card
-                shadow="md"
-                radius="md"
-                className={classes.card}
-                p="xl"
-            >
+            <Card shadow="md" radius="md" className={classes.card} p="xl">
                 <Text
                     size="lg"
                     weight={500}

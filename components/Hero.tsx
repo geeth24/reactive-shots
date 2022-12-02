@@ -73,6 +73,9 @@ function Hero() {
     const { classes } = useStyles()
     const autoplay = useRef(Autoplay({ delay: 4000 }))
 
+    const title = "Reactive Shots"
+    const subtitle = "Event, Portrait, and Landscape Photography"
+
     return (
         <div className={classes.root} id="home">
             <Carousel
@@ -229,16 +232,28 @@ function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.7 }}
                 >
-                    <Title className={classes.title}>Reactive Shots</Title>
+                    <Title className={classes.title}>
+                        {title.split("").map((char, index) => (
+                            <motion.span
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.3 + index * 0.1,
+                                }}
+                            >
+                                {char}
+                            </motion.span>
+                        ))}
+                    </Title>
                 </motion.div>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 1 }}
+                    transition={{ duration: 0.5, delay: 1.2 }}
                 >
-                    <Text className={classes.subtitle}>
-                        Event, Portrait, and Landscape Photography
-                    </Text>
+                    <Text className={classes.subtitle}>{subtitle}</Text>
                 </motion.div>
             </Container>
         </div>
