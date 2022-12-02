@@ -188,7 +188,7 @@ function Navbar({ links }: NavbarProps) {
                         </Paper>
                     )}
                 </Transition>
-               
+
                 <Group
                     spacing={5}
                     position="center"
@@ -201,6 +201,7 @@ function Navbar({ links }: NavbarProps) {
                         src={dark ? "/Camera.png" : "/CameraLight.png"}
                         width={25}
                         height={25}
+                        alt="Picture of the Reactive Shots Logo"
                     />
                     <Text
                         size="xl"

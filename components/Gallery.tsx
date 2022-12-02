@@ -130,10 +130,11 @@ function Gallery() {
                                 <a
                                     href={`/event/${item.name}.jpeg`}
                                     data-sub-html={`<h4>${item.event}</h4>`}
+                                    key={i + 1}
                                 >
                                     <Image
                                         src={`/event/${item.name}.jpeg`}
-                                        alt="event"
+                                        alt={item.name}
                                     />
                                 </a>
                             ))}
@@ -155,15 +156,13 @@ function Gallery() {
                         >
                             {landscapes.map((item, i) => (
                                 <a
-                                    href={`/landscape/Landscape${i + 1}.jpeg`}
+                                    href={`/landscape/${item.name}.jpeg`}
                                     data-sub-html={`<h4>${item.location}</h4>`}
                                     key={i + 1}
                                 >
                                     <Image
-                                        src={`/landscape/Landscape${
-                                            i + 1
-                                        }.jpeg`}
-                                        alt="landscape"
+                                        src={`/landscape/${item.name}.jpeg`}
+                                        alt={item.name}
                                     />
                                 </a>
                             ))}
@@ -192,7 +191,7 @@ function Gallery() {
                                 >
                                     <Image
                                         src={`/portrait/${item.name}.jpeg`}
-                                        alt="portrait"
+                                        alt={item.name}
                                     />
                                 </a>
                             ))}
