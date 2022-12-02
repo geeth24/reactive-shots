@@ -56,6 +56,8 @@ function Footer() {
                         src={dark ? "/Camera.png" : "/CameraLight.png"}
                         width={25}
                         height={25}
+                        alt="Picture of the Reactive Shots Logo"
+
                     />
                     <Text
                         size="xl"
