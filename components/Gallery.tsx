@@ -2,7 +2,7 @@ import React from "react"
 //@ts-ignore
 // import { LightgalleryProvider, LightgalleryItem } from "react-lightgallery"
 // import "lightgallery.js/dist/css/lightgallery.css"
-import { Container, Grid, Image, Tabs, Text } from "@mantine/core"
+import { Container, Image, Tabs, Text } from "@mantine/core"
 import { motion } from "framer-motion"
 import "lightgallery/css/lightgallery.css"
 import "lightgallery/css/lg-zoom.css"
@@ -12,43 +12,12 @@ import "lightgallery/css/lg-thumbnail.css"
 import lgThumbnail from "lightgallery/plugins/thumbnail"
 import lgZoom from "lightgallery/plugins/zoom"
 import LightGallery from "lightgallery/react"
-import { landscapes, portraits } from "./GallaryData"
+import { events, landscapes, portraits } from "./GallaryData"
 
 function Gallery() {
     const onInit = () => {
         console.log("lightGallery has been initialized")
     }
-
-    const events = [
-        {
-            name: "Event1",
-            event: "Adiki's Housewarming",
-        },
-        {
-            name: "Event2",
-            event: "Adiki's Housewarming",
-        },
-        {
-            name: "Event3",
-            event: "Mammen's Onam 2022",
-        },
-        {
-            name: "Event4",
-            event: "Adiki's Housewarming",
-        },
-        {
-            name: "Event5",
-            event: "Adiki's Housewarming",
-        },
-        {
-            name: "Event6",
-            event: "Coppell High School Senior Sunrise",
-        },
-        {
-            name: "Event7",
-            event: "Coppell High School Senior Sunrise",
-        },
-    ]
 
     return (
         <Container size="lg" id="gallery" mb="xl" pt={50}>
@@ -59,6 +28,7 @@ function Gallery() {
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             transition={{ duration: 0.5 }}
+                            viewport={{ once: true, amount: 0.8 }}
                         >
                             <Text
                                 size="xl"
@@ -79,6 +49,7 @@ function Gallery() {
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             transition={{ duration: 0.5 }}
+                            viewport={{ once: true, amount: 0.8 }}
                         >
                             <Text
                                 size="xl"
@@ -98,6 +69,7 @@ function Gallery() {
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             transition={{ duration: 0.5 }}
+                            viewport={{ once: true, amount: 0.8 }}
                         >
                             <Text
                                 size="xl"
@@ -114,7 +86,12 @@ function Gallery() {
                     </Tabs.Tab>
                 </Tabs.List>
                 <Tabs.Panel value="event" pt="xs">
-                    <motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true, amount: 0.8 }}
+                    >
                         <LightGallery
                             onInit={onInit}
                             speed={500}
@@ -133,6 +110,7 @@ function Gallery() {
                                         delay: i * 0.1,
                                         duration: 0.5,
                                     }}
+                                    viewport={{ once: true, amount: 0.8 }}
                                 >
                                     <Image
                                         src={`/event/${item.name}.jpeg`}
@@ -144,7 +122,12 @@ function Gallery() {
                     </motion.div>
                 </Tabs.Panel>
                 <Tabs.Panel value="landscape" pt="xs">
-                    <motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true, amount: 0.8 }}
+                    >
                         <LightGallery
                             onInit={onInit}
                             speed={500}
@@ -163,6 +146,7 @@ function Gallery() {
                                         delay: i * 0.1,
                                         duration: 0.5,
                                     }}
+                                    viewport={{ once: true, amount: 0.8 }}
                                 >
                                     <Image
                                         src={`/landscape/${item.name}.jpeg`}
@@ -179,6 +163,7 @@ function Gallery() {
                         initial={{ opacity: 0, y: 100 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
+                        viewport={{ once: true, amount: 0.8 }}
                     >
                         <LightGallery
                             onInit={onInit}
@@ -198,6 +183,7 @@ function Gallery() {
                                         delay: i * 0.1,
                                         duration: 0.5,
                                     }}
+                                    viewport={{ once: true, amount: 0.8 }}
                                 >
                                     <Image
                                         src={`/portrait/${item.name}.jpeg`}

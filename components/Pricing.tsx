@@ -100,6 +100,7 @@ function Pricing() {
                 duration: 0.5,
             }}
             key={feature.title}
+            viewport={{ once: true, amount: 0.8 }}
         >
             <Card shadow="md" radius="md" className={classes.card} p="xl">
                 <Text
@@ -124,6 +125,7 @@ function Pricing() {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
+                        viewport={{ once: true, amount: 0.8 }}
                     >
                         <Text
                             size={25}
@@ -142,6 +144,7 @@ function Pricing() {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
+                    viewport={{ once: true, amount: 0.8 }}
                 >
                     <Text
                         color="dimmed"

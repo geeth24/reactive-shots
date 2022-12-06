@@ -50,7 +50,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
                     theme={{
                         /** Put your mantine theme override here */
                         fontFamily: "Lato, sans-serif",
-                        headings: { fontFamily: "Greycliff CF, sans-serif" },
+                        headings: { fontFamily: "Cater One, sans-serif" },
                         colorScheme: colorScheme,
                         primaryColor: "red",
                         //dsiable scrollbars

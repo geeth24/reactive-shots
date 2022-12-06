@@ -162,17 +162,13 @@ function Contact() {
     }
 
     return (
-        <div className={classes.root}      id="contact">
-            <Container
-                size="md"
-                mb="lg"
-           
-                className={classes.conatiner}
-            >
+        <div className={classes.root} id="contact">
+            <Container size="md" mb="lg" className={classes.conatiner}>
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
+                    viewport={{ once: true, amount: 0.8 }}
                 >
                     <Text
                         size={25}
@@ -190,6 +186,7 @@ function Contact() {
                     initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
+                    viewport={{ once: true, amount: 0.8 }}
                 >
                     <div style={{ position: "relative" }}>
                         <LoadingOverlay
