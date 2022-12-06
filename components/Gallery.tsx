@@ -87,10 +87,10 @@ function Gallery() {
                 </Tabs.List>
                 <Tabs.Panel value="event" pt="xs">
                     <motion.div
-                        initial={{ opacity: 0, y: 100 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        viewport={{ once: true, amount: 0.8 }}
+                    // initial={{ opacity: 0, y: 100 }}
+                    // whileInView={{ opacity: 1, y: 0 }}
+                    // transition={{ duration: 0.5 }}
+                    // viewport={{ once: true, amount: 0.8 }}
                     >
                         <LightGallery
                             onInit={onInit}
@@ -123,10 +123,10 @@ function Gallery() {
                 </Tabs.Panel>
                 <Tabs.Panel value="landscape" pt="xs">
                     <motion.div
-                        initial={{ opacity: 0, y: 100 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        viewport={{ once: true, amount: 0.8 }}
+                    // initial={{ opacity: 0, y: 100 }}
+                    // whileInView={{ opacity: 1, y: 0 }}
+                    // transition={{ duration: 0.5 }}
+                    // viewport={{ once: true, amount: 0.8 }}
                     >
                         <LightGallery
                             onInit={onInit}
@@ -160,10 +160,10 @@ function Gallery() {
 
                 <Tabs.Panel value="portrait" pt="xs">
                     <motion.div
-                        initial={{ opacity: 0, y: 100 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        viewport={{ once: true, amount: 0.8 }}
+                    // initial={{ opacity: 0, y: 100 }}
+                    // whileInView={{ opacity: 1, y: 0 }}
+                    // transition={{ duration: 0.5 }}
+                    // viewport={{ once: true, amount: 0.8 }}
                     >
                         <LightGallery
                             onInit={onInit}
