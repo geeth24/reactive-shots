@@ -7,10 +7,12 @@ import {
     Card,
     SimpleGrid,
     Container,
+    Button,
 } from "@mantine/core"
 import { motion } from "framer-motion"
+import { useRouter } from "next/router"
 
-const mockdata = [
+const pricingData = [
     {
         title: "$25 / hour",
         description:
@@ -90,33 +92,88 @@ const useStyles = createStyles((theme) => ({
 }))
 
 function Pricing() {
+    const router = useRouter()
+    const { pricing } = router.query
+    console.log(pricing)
+
     const { classes, theme } = useStyles()
-    const features = mockdata.map((feature, i) => (
-        <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{
-                delay: i * 0.1,
-                duration: 0.5,
-            }}
-            key={feature.title}
-            viewport={{ once: true, amount: 0.8 }}
-        >
-            <Card shadow="md" radius="md" className={classes.card} p="xl">
-                <Text
-                    size="lg"
-                    weight={500}
-                    className={classes.cardTitle}
-                    mt="md"
-                >
-                    {feature.title}
-                </Text>
-                <Text size="sm" color="dimmed" mt="sm">
-                    {feature.description}
-                </Text>
-            </Card>
-        </motion.div>
-    ))
+    var pricingVarients
+
+    if (pricing === undefined) {
+        pricingVarients = pricingData.map((feature, i) => (
+            <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{
+                    delay: i * 0.1,
+                    duration: 0.5,
+                }}
+                key={feature.title}
+                viewport={{ once: true, amount: 0.8 }}
+            >
+                <Card shadow="md" radius="md" className={classes.card} p="xl">
+                    <Text
+                        size="lg"
+                        weight={500}
+                        className={classes.cardTitle}
+                        mt="md"
+                    >
+                        {feature.title}
+                    </Text>
+                    <Text size="sm" color="dimmed" mt="sm">
+                        {feature.description}
+                    </Text>
+                </Card>
+            </motion.div>
+        ))
+    } else {
+        //return empty div
+        pricingVarients = (
+            <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{
+                    delay: 0.1,
+                    duration: 0.5,
+                }}
+                viewport={{ once: true, amount: 0.8 }}
+            >
+                <Card shadow="md" radius="md" className={classes.card} p="xl">
+                    <Text
+                        size="lg"
+                        weight={500}
+                        className={classes.cardTitle}
+                        mt="md"
+                    >
+                        Ask Geeth for Pricing
+                    </Text>
+                    <Text size="sm" color="dimmed" mt="sm">
+                        Looks like you are a friend or family member of Geeth.
+                        Geeth does custom pricing for friends and family. Please
+                        contact him for your custom quote. <br />
+                        Please do not share this page with anyone else. To share
+                        information about Reactive Shots, please use the button
+                        below.
+                    </Text>
+                    <Button
+                        mt="xl"
+                        variant="outline"
+                        color="red"
+                        onClick={() => {
+                            navigator.share({
+                                title: "Reactive Shots",
+                                text: "Check out Reactive Shots!",
+                                url: "https://reactiveshots.com",
+                            })
+                        }}
+                    >
+                        Trying to share this page? Click here!
+                    </Button>
+                </Card>
+            </motion.div>
+        )
+    }
+
     return (
         <div className={classes.root} id="pricing">
             <Container size="lg" py="xl" mb="xl" pt={50}>
@@ -156,12 +213,18 @@ function Pricing() {
                     </Text>
                 </motion.div>
                 <SimpleGrid
-                    cols={3}
+                    cols={pricing === undefined ? 3 : 1}
                     spacing="xl"
                     mt={50}
                     breakpoints={[{ maxWidth: "md", cols: 1 }]}
+                    sx={{
+                        display: `${pricing !== undefined ? "flex" : ""}`,
+                        justifyContent: `${
+                            pricing !== undefined ? "center" : ""
+                        }`,
+                    }}
                 >
-                    {features}
+                    {pricingVarients}
                 </SimpleGrid>
             </Container>
         </div>
