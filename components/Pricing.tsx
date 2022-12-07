@@ -93,8 +93,8 @@ const useStyles = createStyles((theme) => ({
 
 function Pricing() {
     const router = useRouter()
-    const { pricing } = router.query
-    console.log(pricing)
+    const { p } = router.query
+    const pricing = p
 
     const { classes, theme } = useStyles()
     var pricingVarients
