@@ -16,7 +16,7 @@ export default class _Document extends Document {
                     <meta
                         name="image"
                         property="og:image"
-                        content="/RSLogo.jpg"
+                        content="/ReactiveshotsBC.jpeg"
                     />
                     <meta name="author" content="Geeth Gunnampalli" />
                     <meta
