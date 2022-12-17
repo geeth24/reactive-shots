@@ -49,7 +49,7 @@ const useStyles = createStyles((theme) => ({
         lineHeight: 1.1,
 
         [theme.fn.smallerThan("sm")]: {
-            fontSize: 30,
+            fontSize: 40,
             lineHeight: 1.2,
         },
     },
