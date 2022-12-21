@@ -14,19 +14,59 @@ import { useRouter } from "next/router"
 
 const pricingData = [
     {
-        title: "$25 / hour",
-        description:
-            "For the $25 / hour rate, you will receive photoshoot and raw images with slight editing. Includes 1 Revision for each photo.",
+        title: "Package 1",
+        description: [
+            {
+                title: "1 Hour Photoshoot",
+            },
+            {
+                title: "1 Location",
+            },
+            {
+                title: "20 Edited Images",
+            },
+            {
+                title: "1 Revision",
+            },
+        ],
+        price: "$100",
     },
     {
-        title: "$50 / hour",
-        description:
-            "For the $50 / hour rate, you will receive photoshoot and raw images with moderate editing. Includes 2 Revisions for each photo.",
+        title: "Package 2",
+        description: [
+            {
+                title: "Min 3 Hours Photoshoot",
+            },
+            {
+                title: "Event/Party",
+            },
+            {
+                title: "Unlimited Images",
+            },
+            {
+                title: "2 Revision",
+            },
+        ],
+        price: "$50/hr",
+        bestValue: true,
     },
     {
-        title: "$100 / hour",
-        description:
-            "For the $100 / hour rate, you will receive photoshoot and raw images with complete editing. Includes 5 Revisions for each photo.",
+        title: "Package 3",
+        description: [
+            {
+                title: "3 Hours Photoshoot",
+            },
+            {
+                title: "2 Location",
+            },
+            {
+                title: "50 Edited Images",
+            },
+            {
+                title: "2 Revision",
+            },
+        ],
+        price: "$300",
     },
 ]
 
@@ -111,18 +151,137 @@ function Pricing() {
                 key={feature.title}
                 viewport={{ once: true, amount: 0.8 }}
             >
-                <Card shadow="md" radius="md" className={classes.card} p="xl">
-                    <Text
-                        size="lg"
-                        weight={500}
-                        className={classes.cardTitle}
-                        mt="md"
-                    >
-                        {feature.title}
-                    </Text>
-                    <Text size="sm" color="dimmed" mt="sm">
-                        {feature.description}
-                    </Text>
+                <Card
+                    shadow="md"
+                    radius="md"
+                    className={classes.card}
+                    p="xl"
+                    //if best value, change color and add badge
+                    sx={{
+                        backgroundColor:
+                            feature.bestValue === true
+                                ? theme.colors.blue[9]
+                                : "inherit",
+                        border:
+                            feature.bestValue === true
+                                ? "none"
+                                : `1px solid ${
+                                      theme.colorScheme === "dark"
+                                          ? theme.colors.dark[5]
+                                          : theme.colors.gray[1]
+                                  }`,
+
+                        transform:
+                            feature.bestValue === true
+                                ? "scale(1.10)"
+                                : "inherit",
+
+                        transition: "all 0.3s ease-in-out",
+
+                        //hover
+                        "&:hover": {
+                            transform:
+                                feature.bestValue === true
+                                    ? "scale(1.15)"
+                                    : "scale(1.05)",
+                            transition: "all 0.3s ease-in-out",
+                        },
+                        zIndex: feature.bestValue === true ? 1 : "inherit",
+                    }}
+                >
+                    <SimpleGrid cols={2} spacing="sm">
+                        <Container>
+                            <Text
+                                size="lg"
+                                weight={500}
+                                className={classes.cardTitle}
+                                mt="md"
+                                sx={{
+                                    color:
+                                        feature.bestValue === true
+                                            ? theme.colorScheme === "dark"
+                                                ? "#fff"
+                                                : "#fff"
+                                            : "inherit",
+
+                                    "&::after": {
+                                        backgroundColor:
+                                            feature.bestValue === true
+                                                ? theme.colorScheme === "dark"
+                                                    ? "#fff"
+                                                    : "#fff"
+                                                : theme.fn.primaryColor(),
+                                    },
+                                }}
+                            >
+                                {feature.title}
+                            </Text>
+                            <Text size="sm" color="dimmed" mt="sm">
+                                {feature.description.map((item) => (
+                                    <div key={item.title}>
+                                        <Text
+                                            size="sm"
+                                            color="dimmed"
+                                            mt="sm"
+                                            sx={{
+                                                color:
+                                                    feature.bestValue === true
+                                                        ? theme.colorScheme ===
+                                                          "dark"
+                                                            ? "#fff"
+                                                            : "#fff"
+                                                        : "inherit",
+                                                "&::before": {
+                                                    content: '"✓"',
+                                                    color:
+                                                        feature.bestValue ===
+                                                        true
+                                                            ? theme.colorScheme ===
+                                                              "dark"
+                                                                ? theme.colors
+                                                                      .blue[1]
+                                                                : theme.colors
+                                                                      .blue[1]
+                                                            : "inherit",
+                                                    marginRight:
+                                                        0.5 * theme.spacing.xs,
+                                                },
+                                            }}
+                                        >
+                                            {item.title}
+                                        </Text>
+                                    </div>
+                                ))}
+                            </Text>
+                        </Container>
+                        <Container
+                            sx={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                            }}
+                        >
+                            <Text
+                                // size={50}
+                                weight={500}
+                                // className={classes.title}
+                                mt="md"
+                                sx={{
+                                    color:
+                                        feature.bestValue === true
+                                            ? theme.colorScheme === "dark"
+                                                ? "#fff"
+                                                : "#fff"
+                                            : "inherit",
+
+                                    fontSize:
+                                        feature.bestValue === true ? 45 : 50,
+                                }}
+                            >
+                                {feature.price}
+                            </Text>
+                        </Container>
+                    </SimpleGrid>
                 </Card>
             </motion.div>
         ))
@@ -158,7 +317,7 @@ function Pricing() {
                     <Button
                         mt="xl"
                         variant="outline"
-                        color="red"
+                        color="blue"
                         onClick={() => {
                             navigator.share({
                                 title: "Reactive Shots",
@@ -187,7 +346,7 @@ function Pricing() {
                         <Text
                             size={25}
                             weight={700}
-                            color="red"
+                            color="blue"
                             sx={{
                                 fontFamily: "Carter One",
                             }}
@@ -216,7 +375,7 @@ function Pricing() {
                     cols={pricing === undefined ? 3 : 1}
                     spacing="xl"
                     mt={50}
-                    breakpoints={[{ maxWidth: "md", cols: 1 }]}
+                    breakpoints={[{ maxWidth: "lg", cols: 1 }]}
                     sx={{
                         display: `${pricing !== undefined ? "flex" : ""}`,
                         justifyContent: `${
