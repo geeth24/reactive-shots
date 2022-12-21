@@ -109,7 +109,7 @@ const useStyles = createStyles((theme) => ({
                 ? theme.colors.dark[5]
                 : theme.colors.gray[1]
         }`,
-        maxWidth: 400,
+        // maxWidth: 500,
         transition: "all 0.3s ease-in-out",
 
         //hover
@@ -161,7 +161,10 @@ function Pricing() {
                         backgroundColor:
                             feature.bestValue === true
                                 ? theme.colors.blue[9]
-                                : "inherit",
+                                : theme.colorScheme === "dark"
+                                ? theme.colors.dark[7]
+                                : "#fff",
+
                         border:
                             feature.bestValue === true
                                 ? "none"
@@ -391,11 +394,19 @@ function Pricing() {
                     </Text>
                 </motion.div>
                 <SimpleGrid
-                    cols={pricing === undefined ? 3 : 1}
+                    // cols={pricing === undefined ? 3 : 1}
                     spacing="xl"
                     mt={50}
-                    breakpoints={[{ maxWidth: "lg", cols: 1 }]}
-                  
+                    // breakpoints={[{ maxWidth: "sm", cols: 1 }]}
+                    sx={{
+                        display: "flex",
+                        justifyContent: "center",
+
+                        "@media (max-width: 600px)": {
+                            flexDirection: "column",
+                            alignItems: "center",
+                        },
+                    }}
                 >
                     {pricingVarients}
                 </SimpleGrid>
