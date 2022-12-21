@@ -29,7 +29,7 @@ const pricingData = [
                 title: "1 Revision",
             },
         ],
-        price: "$100",
+        price: "$75",
     },
     {
         title: "Package 2",
@@ -47,7 +47,7 @@ const pricingData = [
                 title: "2 Revision",
             },
         ],
-        price: "$50/hr",
+        price: "$60/hr",
         bestValue: true,
     },
     {
@@ -189,7 +189,19 @@ function Pricing() {
                         zIndex: feature.bestValue === true ? 1 : "inherit",
                     }}
                 >
-                    <SimpleGrid cols={2} spacing="sm">
+                    <SimpleGrid
+                        cols={2}
+                        spacing="sm"
+                        breakpoints={[{ maxWidth: "lg", cols: 1 }]}
+                        //reverse order if best value
+                        sx={{
+                            display: "flex",
+                            flexDirection:
+                                feature.bestValue === true
+                                    ? "column-reverse"
+                                    : "column",
+                        }}
+                    >
                         <Container>
                             <Text
                                 size="lg"
@@ -276,6 +288,13 @@ function Pricing() {
 
                                     fontSize:
                                         feature.bestValue === true ? 45 : 50,
+
+                                    "@media (max-width: 600px)": {
+                                        fontSize:
+                                            feature.bestValue === true
+                                                ? 35
+                                                : 45,
+                                    },
                                 }}
                             >
                                 {feature.price}
@@ -376,12 +395,7 @@ function Pricing() {
                     spacing="xl"
                     mt={50}
                     breakpoints={[{ maxWidth: "lg", cols: 1 }]}
-                    sx={{
-                        display: `${pricing !== undefined ? "flex" : ""}`,
-                        justifyContent: `${
-                            pricing !== undefined ? "center" : ""
-                        }`,
-                    }}
+                  
                 >
                     {pricingVarients}
                 </SimpleGrid>
