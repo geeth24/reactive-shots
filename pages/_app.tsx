@@ -26,7 +26,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
             maxAge: 60 * 60 * 24 * 30,
         })
     }
-      useHotkeys([["mod+J", () => toggleColorScheme()]])
+    useHotkeys([["mod+J", () => toggleColorScheme()]])
 
     return (
         <div
@@ -50,9 +50,9 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
                     theme={{
                         /** Put your mantine theme override here */
                         fontFamily: "Lato, sans-serif",
-                        headings: { fontFamily: "Cater One, sans-serif" },
+                        headings: { fontFamily: "Carter One, serif" },
                         colorScheme: colorScheme,
-                        primaryColor: "red",
+                        primaryColor: "blue",
                         //dsiable scrollbars
                     }}
                 >
@@ -67,5 +67,5 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
 }
 App.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
     // get color scheme from cookie
-    colorScheme: getCookie("mantine-color-scheme", ctx) || "dark",
+    colorScheme: getCookie("mantine-color-scheme", ctx) || "light",
 })

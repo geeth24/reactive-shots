@@ -28,6 +28,14 @@ export function CustomFonts() {
                         fontStyle: "normal",
                     },
                 },
+                {
+                    "@font-face": {
+                        fontFamily: "Carter One",
+                        src: `url('/fonts/Carter One-Regular.otf') format('truetype')`,
+                        fontWeight: 400,
+                        fontStyle: "normal",
+                    },
+                },
                 //disable scrollbars
                 {
                     "::-webkit-scrollbar": {

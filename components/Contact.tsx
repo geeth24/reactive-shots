@@ -118,7 +118,7 @@ function Contact() {
             showNotification({
                 title: "Error",
                 message: "Please fill out all fields",
-                color: "red",
+                color: "blue",
                 radius: "md",
             })
 
@@ -128,7 +128,7 @@ function Contact() {
             showNotification({
                 title: "Sending",
                 message: "Please wait...",
-                color: "red",
+                color: "blue",
                 radius: "md",
             })
             await axios.post(
@@ -176,7 +176,7 @@ function Contact() {
                         transform="uppercase"
                         align="center"
                         style={{ fontFamily: "Carter One, sans-serif" }}
-                        color="red"
+                        color="blue"
                         mb="md"
                     >
                         Contact
@@ -192,7 +192,7 @@ function Contact() {
                         <LoadingOverlay
                             visible={isSubmitting}
                             overlayBlur={2}
-                            loaderProps={{ color: "red", variant: "dots" }}
+                            loaderProps={{ color: "blue", variant: "dots" }}
                         />
                         <Paper shadow="md" radius="lg">
                             <div className={classes.wrapper}>

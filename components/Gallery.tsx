@@ -21,7 +21,7 @@ function Gallery() {
 
     return (
         <Container size="lg" id="gallery" mb="xl" pt={50}>
-            <Tabs defaultValue="portrait" color="red">
+            <Tabs defaultValue="portrait" color="blue">
                 <Tabs.List position="center">
                     <Tabs.Tab value="event">
                         <motion.div
@@ -33,7 +33,7 @@ function Gallery() {
                             <Text
                                 size="xl"
                                 weight={700}
-                                color="red"
+                                color="blue"
                                 sx={{
                                     fontFamily: "Carter One",
                                 }}
@@ -54,7 +54,7 @@ function Gallery() {
                             <Text
                                 size="xl"
                                 weight={700}
-                                color="red"
+                                color="blue"
                                 sx={{
                                     fontFamily: "Carter One",
                                 }}
@@ -74,7 +74,7 @@ function Gallery() {
                             <Text
                                 size="xl"
                                 weight={700}
-                                color="red"
+                                color="blue"
                                 sx={{
                                     fontFamily: "Carter One",
                                 }}

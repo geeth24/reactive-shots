@@ -104,11 +104,11 @@ const useStyles = createStyles((theme) => ({
         "&, &:hover": {
             backgroundColor: theme.fn.variant({
                 variant: "light",
-                color: "red",
+                color: "blue",
             }).background,
             color: theme.fn.variant({
                 variant: "light",
-                color: "red",
+                color: "blue",
             }).color,
         },
     },
@@ -206,7 +206,7 @@ function Navbar({ links }: NavbarProps) {
                     <Text
                         size="xl"
                         weight={700}
-                        color="red"
+                        color="blue"
                         sx={{
                             fontFamily: "Carter One",
                         }}
@@ -234,13 +234,13 @@ function Navbar({ links }: NavbarProps) {
                         //open in new tab
                         target="_blank"
                         rel="noopener noreferrer"
-                        color={dark ? "gray" : "red"}
+                        color={dark ? "gray" : "blue"}
                     >
                         <IconBrandInstagram size={18} stroke={1.5} />
                     </ActionIcon>
                     <ActionIcon
                         size="lg"
-                        color="red"
+                        color="blue"
                         onClick={() => toggleColorScheme()}
                         title="Toggle color scheme"
                     >

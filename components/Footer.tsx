@@ -57,12 +57,11 @@ function Footer() {
                         width={25}
                         height={25}
                         alt="Picture of the Reactive Shots Logo"
-
                     />
                     <Text
                         size="xl"
                         weight={700}
-                        color="red"
+                        color="blue"
                         sx={{
                             fontFamily: "Carter One",
                         }}
@@ -85,7 +84,7 @@ function Footer() {
                     <Text
                         size="sm"
                         weight={500}
-                        color="red"
+                        color="blue"
                         sx={{
                             fontFamily: "Lato",
                         }}
@@ -94,14 +93,14 @@ function Footer() {
                     </Text>
                 </Group>
                 <Group spacing={5} position="center">
-                    <Text size="sm" weight={500} color="red">
+                    <Text size="sm" weight={500} color="blue">
                         Built with {` `}
                     </Text>
                     <Group spacing={5}>
                         <ActionIcon
                             component="a"
                             size="sm"
-                            color="red"
+                            color="blue"
                             style={{ marginTop: -2 }}
                             href="https://nextjs.org/"
                         >
@@ -111,7 +110,7 @@ function Footer() {
                         <ActionIcon
                             component="a"
                             size="sm"
-                            color="red"
+                            color="blue"
                             style={{ marginTop: -2 }}
                             href="https://mantine.dev/"
                         >
@@ -121,20 +120,20 @@ function Footer() {
                         <ActionIcon
                             component="a"
                             size="sm"
-                            color="red"
+                            color="blue"
                             style={{ marginTop: -2 }}
                             href="https://www.framer.com/motion"
                         >
                             <IconBrandFramer />
                         </ActionIcon>
 
-                        <Text size="sm" weight={500} color="red">
+                        <Text size="sm" weight={500} color="blue">
                             {` `} by {` `}
                         </Text>
                         <Text
                             size="sm"
                             weight={500}
-                            color="red"
+                            color="blue"
                             onClick={() => {
                                 window.open("https://geethg.com")
                             }}
