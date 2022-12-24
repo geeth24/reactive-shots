@@ -45,7 +45,7 @@ const useStyles = createStyles((theme) => ({
         color: theme.white,
         fontSize: 80,
         fontWeight: 400,
-        fontFamily: "Carter One, sans-serif",
+        fontFamily: "Blackmud, sans-serif",
         lineHeight: 1.1,
 
         [theme.fn.smallerThan("sm")]: {

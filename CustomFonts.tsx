@@ -36,6 +36,14 @@ export function CustomFonts() {
                         fontStyle: "normal",
                     },
                 },
+                {
+                    "@font-face": {
+                        fontFamily: "Blackmud",
+                        src: `url('/fonts/Blackmud-VGoOx.ttf') format('truetype')`,
+                        fontWeight: 400,
+                        fontStyle: "normal",
+                    },
+                },
                 //disable scrollbars
                 {
                     "::-webkit-scrollbar": {

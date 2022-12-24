@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import {
     createStyles,
     Header,
@@ -15,6 +15,7 @@ import {
 import { useDisclosure } from "@mantine/hooks"
 import { IconBrandInstagram, IconSun, IconMoonStars } from "@tabler/icons"
 // import { MantineLogo } from "@mantine/ds"
+import { motion } from "framer-motion"
 
 import { Link, animateScroll as scroll } from "react-scroll"
 
@@ -148,6 +149,28 @@ function Navbar({ links }: NavbarProps) {
     const { colorScheme, toggleColorScheme } = useMantineColorScheme()
     const dark = colorScheme === "dark"
 
+    const [heroVisible, setHeroVisible] = useState(true)
+
+    useEffect(() => {
+        //if scroll position is hitting id="gallery" then set heroVisible to false
+        const handleScroll = () => {
+            const gallery = document.getElementById("gallery")
+            if (gallery) {
+                const galleryTop = gallery.getBoundingClientRect().top
+                if (galleryTop < 50) {
+                    setHeroVisible(false)
+                    console.log("heroVisible", heroVisible)
+                } else {
+                    setHeroVisible(true)
+                    console.log("heroVisible", heroVisible)
+                }
+            }
+        }
+
+        //add event listener to window
+        window.addEventListener("scroll", handleScroll)
+    }, [])
+
     return (
         <Header
             height={56}
@@ -189,37 +212,46 @@ function Navbar({ links }: NavbarProps) {
                     )}
                 </Transition>
 
-                <Group
-                    spacing={5}
-                    position="center"
-                    sx={{
-                        // marginLeft: 10,
-                        marginRight: 20,
-                    }}
-                >
-                    <Image
-                        src={dark ? "/Camera.png" : "/CameraLight.png"}
-                        width={25}
-                        height={25}
-                        alt="Picture of the Reactive Shots Logo"
-                    />
-                    <Text
-                        size="xl"
-                        weight={700}
-                        color="blue"
-                        sx={{
-                            fontFamily: "Carter One",
-                        }}
-                        transform="uppercase"
-                        onClick={() => {
-                            scroll.scrollToTop()
-                            setActive(links[0].link)
-                        }}
-                        style={{ cursor: "pointer" }}
+                {!heroVisible && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true, amount: 0.8 }}
                     >
-                        Reactive Shots
-                    </Text>
-                </Group>
+                        <Group
+                            spacing={5}
+                            position="center"
+                            sx={{
+                                // marginLeft: 10,
+                                marginRight: 20,
+                            }}
+                        >
+                            <Image
+                                src={dark ? "/Camera.png" : "/CameraLight.png"}
+                                width={25}
+                                height={25}
+                                alt="Picture of the Reactive Shots Logo"
+                            />
+                            <Text
+                                size="xl"
+                                weight={700}
+                                color="blue"
+                                sx={{
+                                    fontFamily: "Carter One",
+                                }}
+                                transform="uppercase"
+                                onClick={() => {
+                                    scroll.scrollToTop()
+                                    setActive(links[0].link)
+                                }}
+                                style={{ cursor: "pointer" }}
+                            >
+                                Reactive Shots
+                            </Text>
+                        </Group>
+                    </motion.div>
+                )}
 
                 <Group
                     spacing={0}
