@@ -12,7 +12,7 @@ import "lightgallery/css/lg-thumbnail.css"
 import lgThumbnail from "lightgallery/plugins/thumbnail"
 import lgZoom from "lightgallery/plugins/zoom"
 import LightGallery from "lightgallery/react"
-import { events, landscapes, portraits } from "./GallaryData"
+import { events, landscapes, portraits, cars } from "./GallaryData"
 
 function Gallery() {
     const onInit = () => {
@@ -84,6 +84,26 @@ function Gallery() {
                             </Text>
                         </motion.div>
                     </Tabs.Tab>
+                    <Tabs.Tab value="car">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ duration: 0.5 }}
+                            viewport={{ once: true, amount: 0.8 }}
+                        >
+                            <Text
+                                size="xl"
+                                weight={700}
+                                color="blue"
+                                sx={{
+                                    fontFamily: "Carter One",
+                                }}
+                                transform="uppercase"
+                            >
+                                Car
+                            </Text>
+                        </motion.div>
+                    </Tabs.Tab>
                 </Tabs.List>
                 <Tabs.Panel value="event" pt="xs">
                     <motion.div
@@ -107,7 +127,7 @@ function Gallery() {
                                     initial={{ y: 50, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     transition={{
-                                        delay: i * 0.1,
+                                        delay: i * 0.05,
                                         duration: 0.5,
                                     }}
                                     viewport={{ once: true, amount: 0.8 }}
@@ -143,7 +163,7 @@ function Gallery() {
                                     initial={{ y: 50, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     transition={{
-                                        delay: i * 0.1,
+                                        delay: i * 0.05,
                                         duration: 0.5,
                                     }}
                                     viewport={{ once: true, amount: 0.8 }}
@@ -180,13 +200,49 @@ function Gallery() {
                                     initial={{ y: 50, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     transition={{
-                                        delay: i * 0.1,
+                                        delay: i * 0.05,
                                         duration: 0.5,
                                     }}
                                     viewport={{ once: true, amount: 0.8 }}
                                 >
                                     <Image
                                         src={`/portrait/${item.name}.jpeg`}
+                                        alt={item.name}
+                                    />
+                                </motion.a>
+                            ))}
+                        </LightGallery>
+                    </motion.div>
+                </Tabs.Panel>
+                <Tabs.Panel value="car" pt="xs">
+                    <motion.div
+                    // initial={{ opacity: 0, y: 100 }}
+                    // whileInView={{ opacity: 1, y: 0 }}
+                    // transition={{ duration: 0.5 }}
+                    // viewport={{ once: true, amount: 0.8 }}
+                    >
+                        <LightGallery
+                            onInit={onInit}
+                            speed={500}
+                            plugins={[lgThumbnail, lgZoom]}
+                            licenseKey="YOUR_KEY"
+                            elementClassNames="custom-wrapper-class"
+                        >
+                            {cars.map((item, i) => (
+                                <motion.a
+                                    href={`/car/${item.name}.jpeg`}
+                                    data-sub-html={`<h4>${item.model}</h4> <p>Owner: ${item.owner}</p>`}
+                                    key={i + 1}
+                                    initial={{ y: 50, opacity: 0 }}
+                                    whileInView={{ y: 0, opacity: 1 }}
+                                    transition={{
+                                        delay: i * 0.05,
+                                        duration: 0.5,
+                                    }}
+                                    viewport={{ once: true, amount: 0.8 }}
+                                >
+                                    <Image
+                                        src={`/car/${item.name}.jpeg`}
                                         alt={item.name}
                                     />
                                 </motion.a>

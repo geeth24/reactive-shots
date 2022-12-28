@@ -157,7 +157,7 @@ function Navbar({ links }: NavbarProps) {
             const gallery = document.getElementById("gallery")
             if (gallery) {
                 const galleryTop = gallery.getBoundingClientRect().top
-                if (galleryTop < 50) {
+                if (galleryTop < 60) {
                     setHeroVisible(false)
                     console.log("heroVisible", heroVisible)
                 } else {
@@ -169,7 +169,7 @@ function Navbar({ links }: NavbarProps) {
 
         //add event listener to window
         window.addEventListener("scroll", handleScroll)
-    }, [])
+    }, [heroVisible])
 
     return (
         <Header

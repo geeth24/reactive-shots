@@ -123,12 +123,25 @@ function Hero() {
                 <Carousel.Slide>
                     <BackgroundImage
                         className={classes.background}
-                        src="/hero/IMG_0501.jpeg"
+                        src="/hero/Bridge.jpeg"
                         sx={{
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/IMG_0501.jpeg')",
+                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/Bridge.jpeg')",
+                            height: "100vh",
+                        }}
+                    ></BackgroundImage>
+                </Carousel.Slide>
+                <Carousel.Slide>
+                    <BackgroundImage
+                        className={classes.background}
+                        src="/hero/Car7.jpeg"
+                        sx={{
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundImage:
+                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/Car7.jpeg')",
                             height: "100vh",
                         }}
                     ></BackgroundImage>

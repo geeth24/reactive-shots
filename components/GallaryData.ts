@@ -63,6 +63,23 @@ export const portraits = [
         name: "Portrait16",
         model: "Aneesh Murala",
     },
+    {
+        name: "Portrait17",
+        model: "Smaran Voora",
+    },
+    {
+        name: "Portrait18",
+        model: "Smaran Voora",
+    },
+    {
+        name: "Portrait19",
+        model: "Smaran Voora",
+    },
+
+    {
+        name: "Portrait20",
+        model: "Smaran Voora",
+    },
 ]
 
 export const landscapes = [
@@ -110,6 +127,48 @@ export const landscapes = [
         name: "Landscape11",
         location: "Zion National Park, Utah",
     },
+    {
+        name: "Landscape12",
+        location: "Zion National Park, Utah",
+    },
+    {
+        name: "Landscape13",
+        location: "Zion National Park, Utah",
+    },
+    {
+        name: "Landscape14",
+        location: "Zion National Park, Utah",
+    },
+    {
+        name: "Landscape15",
+        location: "Bryce Canyon National Park, Utah",
+    },
+    {
+        name: "Landscape16",
+        location: "Bryce Canyon National Park, Utah",
+    },
+    {
+        name: "Landscape17",
+        location: "Bryce Canyon National Park, Utah",
+    },
+
+    {
+        name: "Landscape18",
+        location: "Bryce Canyon National Park, Utah",
+    },
+    {
+        name: "Landscape19",
+        location: "Horseshoe Bend, Paige, Arizona",
+    },
+
+    {
+        name: "Landscape20",
+        location: "Horseshoe Bend, Paige, Arizona",
+    },
+    {
+        name: "Landscape21",
+        location: "Margaret Hunt Hill Bridge, Dallas, Texas",
+    },
 ]
 
 export const events = [
@@ -142,3 +201,52 @@ export const events = [
         event: "Coppell High School Senior Sunrise",
     },
 ]
+
+export const cars = [
+    {
+        name: "Car1",
+        model: "Toyota GR 86 (2023)",
+        owner: "Smaran Voora",
+    },
+    {
+        name: "Car2",
+        model: "Toyota GR 86 (2023)",
+        owner: "Smaran Voora",
+    },
+    {
+        name: "Car3",
+        model: "Toyota GR 86 (2023)",
+        owner: "Smaran Voora",
+    },
+    {
+        name: "Car4",
+        model: "Toyota GR 86 (2023)",
+        owner: "Smaran Voora",
+    },
+    {
+        name: "Car5",
+        model: "Toyota GR 86 (2023)",
+        owner: "Smaran Voora",
+    },
+    {
+        name: "Car6",
+        model: "Toyota GR 86 (2023)",
+        owner: "Smaran Voora",
+    },
+    {
+        name: "Car7",
+        model: "Toyota GR 86 (2023)",
+        owner: "Smaran Voora",
+    },
+    {
+        name: "Car8",
+        model: "Toyota GR 86 (2023)",
+        owner: "Smaran Voora",
+    },
+    {
+        name: "Car9",
+        model: "Toyota GR 86 (2023)",
+        owner: "Smaran Voora",
+    },
+]
+
