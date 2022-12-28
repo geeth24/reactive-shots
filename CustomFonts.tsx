@@ -3,7 +3,7 @@ import { Global } from "@mantine/core"
 export function CustomFonts() {
     return (
         <Global
-            styles={[
+            styles={(theme) => [
                 {
                     "@font-face": {
                         fontFamily: "Lato",
@@ -60,6 +60,18 @@ export function CustomFonts() {
                         "@media (max-width: 768px)": {
                             gridTemplateColumns: "repeat(2, 1fr)",
                         },
+                    },
+                },
+                {
+                    ".active": {
+                        backgroundColor: theme.fn.variant({
+                            variant: "light",
+                            color: "blue",
+                        }).background,
+                        color: theme.fn.variant({
+                            variant: "light",
+                            color: "blue",
+                        }).color,
                     },
                 },
             ]}

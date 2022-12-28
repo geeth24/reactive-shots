@@ -124,25 +124,24 @@ function Navbar({ links }: NavbarProps) {
     const [active, setActive] = useState(links[0].link)
     const { classes, cx } = useStyles()
 
-    const items = links.map((link) => (
+    const items = links.map((item, index) => (
         <Link
-            key={link.link}
-            to={link.link}
+            to={item.link}
             spy={true}
             smooth={true}
-            offset={-50}
             duration={500}
-            className={cx(
-                classes.link,
-                active === link.link && classes.linkActive
-            )}
+            offset={-56}
+            key={item.link}
+            style={{
+                cursor: "pointer",
+            }}
+            className={cx(classes.link)}
             onClick={() => {
-                setActive(link.link)
+                setActive(links[index].link)
                 toggle()
             }}
-            style={{ cursor: "pointer" }}
         >
-            {link.label}
+            {item.label}
         </Link>
     ))
 
