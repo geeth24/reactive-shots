@@ -127,7 +127,7 @@ function Gallery() {
                                     initial={{ y: 50, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     transition={{
-                                        delay: i * 0.05,
+                                        delay: (i * 0.05)/2,
                                         duration: 0.5,
                                     }}
                                     viewport={{ once: true, amount: 0.8 }}
@@ -163,7 +163,7 @@ function Gallery() {
                                     initial={{ y: 50, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     transition={{
-                                        delay: i * 0.05,
+                                        delay: (i * 0.05)/2,
                                         duration: 0.5,
                                     }}
                                     viewport={{ once: true, amount: 0.8 }}
@@ -200,7 +200,7 @@ function Gallery() {
                                     initial={{ y: 50, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     transition={{
-                                        delay: i * 0.05,
+                                        delay: (i * 0.05)/2,
                                         duration: 0.5,
                                     }}
                                     viewport={{ once: true, amount: 0.8 }}
@@ -231,12 +231,12 @@ function Gallery() {
                             {cars.map((item, i) => (
                                 <motion.a
                                     href={`/car/${item.name}.jpeg`}
-                                    data-sub-html={`<h4>${item.model}</h4> <p>Owner: ${item.owner}</p>`}
+                                    data-sub-html={`<h4>${item.model}</h4> <p>${item.owner}</p>`}
                                     key={i + 1}
                                     initial={{ y: 50, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     transition={{
-                                        delay: i * 0.05,
+                                        delay: (i * 0.05)/2,
                                         duration: 0.5,
                                     }}
                                     viewport={{ once: true, amount: 0.8 }}
