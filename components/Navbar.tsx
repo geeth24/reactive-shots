@@ -15,7 +15,7 @@ import {
 import { useDisclosure } from "@mantine/hooks"
 import { IconBrandInstagram, IconSun, IconMoonStars } from "@tabler/icons"
 // import { MantineLogo } from "@mantine/ds"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 
 import { Link, animateScroll as scroll } from "react-scroll"
 
@@ -210,47 +210,53 @@ function Navbar({ links }: NavbarProps) {
                         </Paper>
                     )}
                 </Transition>
-
-                {!heroVisible && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 0.5 }}
-                        viewport={{ once: true, amount: 0.8 }}
-                    >
-                        <Group
-                            spacing={5}
-                            position="center"
-                            sx={{
-                                // marginLeft: 10,
-                                marginRight: 20,
-                            }}
+                <AnimatePresence>
+                    {!heroVisible && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ duration: 0.5 }}
+                            viewport={{ once: true, amount: 0.8 }}
+                            exit={{ opacity: 0 }}
                         >
-                            <Image
-                                src={dark ? "/Camera.png" : "/CameraLight.png"}
-                                width={25}
-                                height={25}
-                                alt="Picture of the Reactive Shots Logo"
-                            />
-                            <Text
-                                size="xl"
-                                weight={700}
-                                color="blue"
+                            <Group
+                                spacing={5}
+                                position="center"
                                 sx={{
-                                    fontFamily: "Carter One",
+                                    // marginLeft: 10,
+                                    marginRight: 20,
                                 }}
-                                transform="uppercase"
-                                onClick={() => {
-                                    scroll.scrollToTop()
-                                    setActive(links[0].link)
-                                }}
-                                style={{ cursor: "pointer" }}
                             >
-                                Reactive Shots
-                            </Text>
-                        </Group>
-                    </motion.div>
-                )}
+                                <Image
+                                    src={
+                                        dark
+                                            ? "/Camera.png"
+                                            : "/CameraLight.png"
+                                    }
+                                    width={25}
+                                    height={25}
+                                    alt="Picture of the Reactive Shots Logo"
+                                />
+                                <Text
+                                    size="xl"
+                                    weight={700}
+                                    color="blue"
+                                    sx={{
+                                        fontFamily: "Carter One",
+                                    }}
+                                    transform="uppercase"
+                                    onClick={() => {
+                                        scroll.scrollToTop()
+                                        setActive(links[0].link)
+                                    }}
+                                    style={{ cursor: "pointer" }}
+                                >
+                                    Reactive Shots
+                                </Text>
+                            </Group>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
                 <Group
                     spacing={0}
