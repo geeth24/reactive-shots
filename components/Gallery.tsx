@@ -2,7 +2,7 @@ import React from "react"
 //@ts-ignore
 // import { LightgalleryProvider, LightgalleryItem } from "react-lightgallery"
 // import "lightgallery.js/dist/css/lightgallery.css"
-import { Container, Image, Tabs, Text } from "@mantine/core"
+import { Container, Tabs, Text } from "@mantine/core"
 import { motion } from "framer-motion"
 import "lightgallery/css/lightgallery.css"
 import "lightgallery/css/lg-zoom.css"
@@ -13,6 +13,7 @@ import lgThumbnail from "lightgallery/plugins/thumbnail"
 import lgZoom from "lightgallery/plugins/zoom"
 import LightGallery from "lightgallery/react"
 import { events, landscapes, portraits, cars } from "./GallaryData"
+import Image from "next/image"
 
 function Gallery() {
     const onInit = () => {
@@ -127,7 +128,7 @@ function Gallery() {
                                     initial={{ y: 50, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     transition={{
-                                        delay: (i * 0.05)/2,
+                                        delay: (i * 0.05) / 2,
                                         duration: 0.5,
                                     }}
                                     viewport={{ once: true, amount: 0.8 }}
@@ -135,6 +136,14 @@ function Gallery() {
                                     <Image
                                         src={`/event/${item.name}.jpeg`}
                                         alt={item.name}
+                                        width={400}
+                                        height={200}
+                                        style={{
+                                            objectFit: "cover",
+                                            objectPosition: "center",
+                                            width: "100%",
+                                            height: "100%",
+                                        }}
                                     />
                                 </motion.a>
                             ))}
@@ -163,7 +172,7 @@ function Gallery() {
                                     initial={{ y: 50, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     transition={{
-                                        delay: (i * 0.05)/2,
+                                        delay: (i * 0.05) / 2,
                                         duration: 0.5,
                                     }}
                                     viewport={{ once: true, amount: 0.8 }}
@@ -171,6 +180,14 @@ function Gallery() {
                                     <Image
                                         src={`/landscape/${item.name}.jpeg`}
                                         alt={item.name}
+                                        width={400}
+                                        height={200}
+                                        style={{
+                                            objectFit: "cover",
+                                            objectPosition: "center",
+                                            width: "100%",
+                                            height: "100%",
+                                        }}
                                     />
                                 </motion.a>
                             ))}
@@ -190,9 +207,9 @@ function Gallery() {
                             speed={500}
                             plugins={[lgThumbnail, lgZoom]}
                             licenseKey="YOUR_KEY"
-                            elementClassNames="custom-wrapper-class"
+                            elementClassNames="custom-wrapper-class2"
                         >
-                            {portraits.map((item, i) => (
+                            {portraits.reverse().map((item, i) => (
                                 <motion.a
                                     href={`/portrait/${item.name}.jpeg`}
                                     data-sub-html={`<h4>${item.model}</h4>`}
@@ -200,7 +217,7 @@ function Gallery() {
                                     initial={{ y: 50, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     transition={{
-                                        delay: (i * 0.05)/2,
+                                        delay: (i * 0.05) / 2,
                                         duration: 0.5,
                                     }}
                                     viewport={{ once: true, amount: 0.8 }}
@@ -208,6 +225,14 @@ function Gallery() {
                                     <Image
                                         src={`/portrait/${item.name}.jpeg`}
                                         alt={item.name}
+                                        width={200}
+                                        height={400}
+                                        style={{
+                                            objectFit: "cover",
+                                            objectPosition: "center",
+                                            width: "100%",
+                                            height: "100%",
+                                        }}
                                     />
                                 </motion.a>
                             ))}
@@ -236,7 +261,7 @@ function Gallery() {
                                     initial={{ y: 50, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
                                     transition={{
-                                        delay: (i * 0.05)/2,
+                                        delay: (i * 0.05) / 2,
                                         duration: 0.5,
                                     }}
                                     viewport={{ once: true, amount: 0.8 }}
@@ -244,6 +269,14 @@ function Gallery() {
                                     <Image
                                         src={`/car/${item.name}.jpeg`}
                                         alt={item.name}
+                                        width={400}
+                                        height={200}
+                                        style={{
+                                            objectFit: "cover",
+                                            objectPosition: "center",
+                                            width: "100%",
+                                            height: "100%",
+                                        }}
                                     />
                                 </motion.a>
                             ))}
