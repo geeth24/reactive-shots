@@ -20,6 +20,21 @@ function Gallery() {
         console.log("lightGallery has been initialized")
     }
 
+    const [reversedEvents, setReversedEvents] = React.useState([...events])
+    const [reversedLandscapes, setReversedLandscapes] = React.useState([
+        ...landscapes,
+    ])
+    const [reversedPortraits, setReversedPortraits] = React.useState([
+        ...portraits,
+    ])
+    const [reversedCars, setReversedCars] = React.useState([...cars])
+    React.useEffect(() => {
+        setReversedEvents([...events].reverse())
+        setReversedLandscapes([...landscapes].reverse())
+        setReversedPortraits([...portraits].reverse())
+        setReversedCars([...cars].reverse())
+    }, [])
+
     return (
         <Container size="lg" id="gallery" mb="xl" pt={50}>
             <Tabs defaultValue="portrait" color="blue">
@@ -120,7 +135,7 @@ function Gallery() {
                             licenseKey="YOUR_KEY"
                             elementClassNames="custom-wrapper-class"
                         >
-                            {events.map((item, i) => (
+                            {reversedEvents.map((item, i) => (
                                 <motion.a
                                     href={`/event/${item.name}.jpeg`}
                                     data-sub-html={`<h4>${item.event}</h4>`}
@@ -164,7 +179,7 @@ function Gallery() {
                             licenseKey="YOUR_KEY"
                             elementClassNames="custom-wrapper-class"
                         >
-                            {landscapes.map((item, i) => (
+                            {reversedLandscapes.map((item, i) => (
                                 <motion.a
                                     href={`/landscape/${item.name}.jpeg`}
                                     data-sub-html={`<h4>${item.location}</h4>`}
@@ -209,7 +224,7 @@ function Gallery() {
                             licenseKey="YOUR_KEY"
                             elementClassNames="custom-wrapper-class2"
                         >
-                            {portraits.reverse().map((item, i) => (
+                            {reversedPortraits.map((item, i) => (
                                 <motion.a
                                     href={`/portrait/${item.name}.jpeg`}
                                     data-sub-html={`<h4>${item.model}</h4>`}
@@ -253,7 +268,7 @@ function Gallery() {
                             licenseKey="YOUR_KEY"
                             elementClassNames="custom-wrapper-class"
                         >
-                            {cars.map((item, i) => (
+                            {reversedCars.map((item, i) => (
                                 <motion.a
                                     href={`/car/${item.name}.jpeg`}
                                     data-sub-html={`<h4>${item.model}</h4> <p>${item.owner}</p>`}
