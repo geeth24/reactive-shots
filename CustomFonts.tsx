@@ -61,6 +61,15 @@ export function CustomFonts() {
                             gridTemplateColumns: "repeat(2, 1fr)",
                         },
                     },
+                    ".custom-wrapper-class2": {
+                        display: "grid",
+                        gridTemplateColumns: "repeat(4, 1fr)",
+                        gridGap: "1rem",
+
+                        "@media (max-width: 768px)": {
+                            gridTemplateColumns: "repeat(3, 1fr)",
+                        },
+                    },
                 },
                 {
                     ".active": {

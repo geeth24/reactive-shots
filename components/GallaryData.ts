@@ -80,6 +80,31 @@ export const portraits = [
         name: "Portrait20",
         model: "Smaran Voora",
     },
+    {
+        name: "Portrait21",
+        model: "Dhiraj Bijinepally",
+    },
+    {
+        name: "Portrait22",
+        model: "Dhiraj Bijinepally",
+    },
+
+    {
+        name: "Portrait23",
+        model: "Dhiraj Bijinepally",
+    },
+    {
+        name: "Portrait24",
+        model: "Hima Nagi Reddy",
+    },
+    {
+        name: "Portrait25",
+        model: "Hima Nagi Reddy",
+    },
+    {
+        name: "Portrait26",
+        model: "Hima Nagi Reddy",
+    },
 ]
 
 export const landscapes = [
