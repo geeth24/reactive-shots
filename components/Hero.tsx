@@ -63,7 +63,7 @@ const useStyles = createStyles((theme) => ({
         color: theme.white,
         fontSize: 30,
         fontWeight: 400,
-        fontFamily: "Black mud, sans-serif",
+        fontFamily: "Blackmud, sans-serif",
         lineHeight: 1.1,
         marginTop: theme.spacing.md,
 

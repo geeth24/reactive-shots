@@ -63,7 +63,7 @@ function Footer() {
                         weight={700}
                         color="blue"
                         sx={{
-                            fontFamily: "Black mud",
+                            fontFamily: "Blackmud",
                         }}
                         // transform="uppercase"
                         onClick={() => {

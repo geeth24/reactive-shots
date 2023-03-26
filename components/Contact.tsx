@@ -175,7 +175,7 @@ function Contact() {
                         weight={700}
                         // transform="uppercase"
                         align="center"
-                        style={{ fontFamily: "Black mud" }}
+                        style={{ fontFamily: "Blackmud" }}
                         color="blue"
                         mb="md"
                     >
