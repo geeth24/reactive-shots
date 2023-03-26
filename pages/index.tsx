@@ -4,30 +4,29 @@ import { Loader } from "@mantine/core"
 // import { Suspense } from "react"
 import Contact from "../components/Contact"
 import Gallery from "../components/Gallery"
-import Hero from "../components/Hero"
+import HeroComp from "../components/Hero"
 import Pricing from "../components/Pricing"
 import Navbar from "../components/Navbar"
-// import { Contact } from "../components/Contact"
-import  Footer from "../components/Footer"
-// const Navbar = dynamic(() => import("../components/Navbar"), {
-//     suspense: true,
-// })
-// const Hero = dynamic(() => import("../components/Hero"), {
-//     suspense: true,
-// })
-// const Gallery = dynamic(() => import("../components/Gallery"), {
-//     suspense: true,
-// })
-// const Pricing = dynamic(() => import("../components/Pricing"), {
-//     suspense: true,
-// })
-// const Contact = dynamic(() => import("../components/Contact"), {
-//     suspense: true,
-// })
-// const Footer = dynamic(() => import("../components/Footer"), {
-//     suspense: true,
-// })
-export default function Home() {
+import Footer from "../components/Footer"
+import { GetServerSideProps } from "next"
+import { sanityClient } from "../sanity"
+import { Cars, Events, Hero, Landscapes, Portraits } from "../typings"
+
+interface Props {
+    portraits: Portraits[]
+    landscapes: Landscapes[]
+    cars: Cars[]
+    events: Events[]
+    hero: Hero[]
+}
+
+export default function Home({
+    portraits,
+    landscapes,
+    cars,
+    events,
+    hero,
+}: Props) {
     const renderLoader = () => {
         return (
             <div style={{ height: "100vh" }}>
@@ -56,8 +55,13 @@ export default function Home() {
                         { link: "contact", label: "Contact" },
                     ]}
                 />
-                <Hero />
-                <Gallery />
+                <HeroComp hero={hero} />
+                <Gallery
+                    portraits={portraits}
+                    landscapes={landscapes}
+                    cars={cars}
+                    events={events}
+                />
                 <Pricing />
                 <Contact />
                 <Footer />
@@ -65,4 +69,77 @@ export default function Home() {
             {/* </Suspense> */}
         </>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+    const query = `
+{
+    "hero": *[_type == 'hero']{
+    _id,
+    order,
+    heroImage,
+    },
+      "events": *[_type == 'events']{
+    _id,
+    eventName,
+    date,
+    event,
+},
+     "portraits": *[_type == 'portraits']{
+  _id,
+    portraitName,
+    date,
+    location->{
+      name
+    },
+    client->{
+      _id,
+      firstName,
+      lastName,
+      instagram,
+       slug{
+              current
+            },
+    },
+  portrait
+    
+},
+  "landscapes": *[_type == 'landscapes']{
+    _id,
+    landscapeName,
+    date,
+    location->{
+        name
+    },
+    landscape
+} ,
+
+  "cars": *[_type == 'cars']{
+    _id,
+    carName,
+    carModelYear,
+    date,
+    client->{
+        _id,
+        firstName,
+        lastName,
+    },
+    car
+} 
+ 
+
+}  
+`
+
+    const data = await sanityClient.fetch(query)
+
+    return {
+        props: {
+            portraits: data.portraits,
+            landscapes: data.landscapes,
+            cars: data.cars,
+            events: data.events,
+            hero: data.hero,
+        },
+    }
 }

@@ -21,7 +21,7 @@ export default class _Document extends Document {
                     <meta name="author" content="Geeth Gunnampalli" />
                     <meta
                         property="og:description"
-                        content="Event, Portrait, and Landscape Photography"
+                        content="Capturing your moment"
                     />
                     <meta
                         property="og:url"

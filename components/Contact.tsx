@@ -173,9 +173,9 @@ function Contact() {
                     <Text
                         size={25}
                         weight={700}
-                        transform="uppercase"
+                        // transform="uppercase"
                         align="center"
-                        style={{ fontFamily: "Carter One, sans-serif" }}
+                        style={{ fontFamily: "Black mud" }}
                         color="blue"
                         mb="md"
                     >

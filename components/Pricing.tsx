@@ -370,9 +370,9 @@ function Pricing() {
                             weight={700}
                             color="blue"
                             sx={{
-                                fontFamily: "Carter One",
+                                fontFamily: "Black mud",
                             }}
-                            transform="uppercase"
+                            // transform="uppercase"
                         >
                             Pricing
                         </Text>

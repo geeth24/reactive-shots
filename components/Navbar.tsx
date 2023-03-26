@@ -158,10 +158,10 @@ function Navbar({ links }: NavbarProps) {
                 const galleryTop = gallery.getBoundingClientRect().top
                 if (galleryTop < 60) {
                     setHeroVisible(false)
-                    console.log("heroVisible", heroVisible)
+                    // console.log("heroVisible", heroVisible)
                 } else {
                     setHeroVisible(true)
-                    console.log("heroVisible", heroVisible)
+                    // console.log("heroVisible", heroVisible)
                 }
             }
         }
@@ -233,8 +233,8 @@ function Navbar({ links }: NavbarProps) {
                                             ? "/Camera.png"
                                             : "/CameraLight.png"
                                     }
-                                    width={25}
-                                    height={25}
+                                    width={30}
+                                    height={30}
                                     alt="Picture of the Reactive Shots Logo"
                                 />
                                 <Text
@@ -242,9 +242,9 @@ function Navbar({ links }: NavbarProps) {
                                     weight={700}
                                     color="blue"
                                     sx={{
-                                        fontFamily: "Carter One",
+                                        fontFamily: "Black mud",
                                     }}
-                                    transform="uppercase"
+                                    // transform="uppercase"
                                     onClick={() => {
                                         scroll.scrollToTop()
                                         setActive(links[0].link)

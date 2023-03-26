@@ -28,7 +28,7 @@ export function CustomFonts() {
                         fontStyle: "normal",
                     },
                 },
-             
+
                 {
                     "@font-face": {
                         fontFamily: "Blackmud",
@@ -74,6 +74,23 @@ export function CustomFonts() {
                             variant: "light",
                             color: "blue",
                         }).color,
+                    },
+                },
+                {
+                    ".my-masonry-grid": {
+                        display: "flex",
+                        marginLeft: "-30px",
+                        width: "auto",
+                    },
+                    ".my-masonry-grid_column": {
+                        paddingLeft: "30px",
+                        backgroundClip: "padding-box",
+                    },
+                    ".my-masonry-grid_column > div": {
+                        marginBottom: "30px",
+                        background: "white",
+                        borderRadius: "5px",
+                        boxShadow: "0 0 10px rgba(0,0,0,0.1)",
                     },
                 },
             ]}

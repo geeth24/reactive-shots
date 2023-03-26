@@ -10,6 +10,11 @@ import { useRef } from "react"
 import { Carousel } from "@mantine/carousel"
 import Autoplay from "embla-carousel-autoplay"
 import { motion } from "framer-motion"
+import { Hero } from "../typings"
+import { urlFor } from "../sanity"
+interface HeroProps {
+    hero: Hero[]
+}
 const useStyles = createStyles((theme) => ({
     root: {
         position: "relative",
@@ -56,25 +61,25 @@ const useStyles = createStyles((theme) => ({
 
     subtitle: {
         color: theme.white,
-        fontSize: 20,
+        fontSize: 30,
         fontWeight: 400,
-        fontFamily: "Lato, sans-serif",
+        fontFamily: "Black mud, sans-serif",
         lineHeight: 1.1,
         marginTop: theme.spacing.md,
 
         [theme.fn.smallerThan("sm")]: {
-            fontSize: 16,
+            fontSize: 20,
             lineHeight: 1.2,
         },
     },
 }))
 
-function Hero() {
+function Hero({ hero }: HeroProps) {
     const { classes } = useStyles()
     const autoplay = useRef(Autoplay({ delay: 4000 }))
 
     const title = "Reactive Shots"
-    const subtitle = "Event, Portrait, and Landscape Photography"
+    const subtitle = "Capturing your moment"
 
     return (
         <div className={classes.root} id="home">
@@ -107,124 +112,30 @@ function Hero() {
                     },
                 }}
             >
-                <Carousel.Slide>
-                    <BackgroundImage
-                        className={classes.background}
-                        src="/RSLogo.jpeg"
-                        sx={{
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/RSLogo.jpeg')",
-                            height: "100vh",
-                        }}
-                    ></BackgroundImage>
-                </Carousel.Slide>
-                <Carousel.Slide>
-                    <BackgroundImage
-                        className={classes.background}
-                        src="/hero/Bridge.jpeg"
-                        sx={{
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/Bridge.jpeg')",
-                            height: "100vh",
-                        }}
-                    ></BackgroundImage>
-                </Carousel.Slide>
-                <Carousel.Slide>
-                    <BackgroundImage
-                        className={classes.background}
-                        src="/hero/Car7.jpeg"
-                        sx={{
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/Car7.jpeg')",
-                            height: "100vh",
-                        }}
-                    ></BackgroundImage>
-                </Carousel.Slide>
+                {hero
+                    .sort((a, b) => a.order - b.order)
+                    .map((item, index) => (
+                        <Carousel.Slide key={index}>
+                            <BackgroundImage
+                                className={classes.background}
+                                src={urlFor(item.heroImage).url()!}
+                                sx={(theme) => ({
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                    backgroundImage:
+                                        theme.colorScheme === "dark"
+                                            ? "linear-gradient(#25262b4a, #1864ab99), url(" +
+                                              urlFor(item.heroImage).url() +
+                                              ")"
+                                            : "linear-gradient(#f8f9fa4a, #339AF099), url(" +
+                                              urlFor(item.heroImage).url() +
+                                              ")",
 
-                <Carousel.Slide>
-                    <BackgroundImage
-                        className={classes.background}
-                        src="/hero/Vegas-10.jpeg"
-                        sx={{
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/Vegas-10.jpeg')",
-                            height: "100vh",
-                        }}
-                    ></BackgroundImage>
-                </Carousel.Slide>
-                <Carousel.Slide>
-                    <BackgroundImage
-                        className={classes.background}
-                        src="/hero/No Prom-107.jpeg"
-                        sx={{
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/No Prom-107.jpeg')",
-                            height: "100vh",
-                        }}
-                    ></BackgroundImage>
-                </Carousel.Slide>
-                <Carousel.Slide>
-                    <BackgroundImage
-                        className={classes.background}
-                        src="/hero/ReactShots 4-min.jpeg"
-                        sx={{
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/ReactShots 4-min.jpeg')",
-                            height: "100vh",
-                        }}
-                    ></BackgroundImage>
-                </Carousel.Slide>
-                <Carousel.Slide>
-                    <BackgroundImage
-                        className={classes.background}
-                        src="/hero/ReactShots 15-min.jpeg"
-                        sx={{
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/ReactShots 15-min.jpeg')",
-                            height: "100vh",
-                        }}
-                    ></BackgroundImage>
-                </Carousel.Slide>
-                <Carousel.Slide>
-                    <BackgroundImage
-                        className={classes.background}
-                        src="/hero/ReactShots 24-min.jpeg"
-                        sx={{
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/ReactShots 24-min.jpeg')",
-                            height: "100vh",
-                        }}
-                    ></BackgroundImage>
-                </Carousel.Slide>
-                <Carousel.Slide>
-                    <BackgroundImage
-                        className={classes.background}
-                        src="/hero/ReactShots 25-min.jpeg"
-                        sx={{
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            backgroundImage:
-                                "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero/ReactShots 25-min.jpeg')",
-                            height: "100vh",
-                        }}
-                    ></BackgroundImage>
-                </Carousel.Slide>
+                                    height: "100vh",
+                                })}
+                            ></BackgroundImage>
+                        </Carousel.Slide>
+                    ))}
             </Carousel>
             <Container className={classes.container}>
                 <motion.div

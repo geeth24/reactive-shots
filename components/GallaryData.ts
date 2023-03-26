@@ -95,15 +95,15 @@ export const portraits = [
     },
     {
         name: "Portrait24",
-        model: "Hima Nagi Reddy",
+        model: "Hima Nagi bluedy",
     },
     {
         name: "Portrait25",
-        model: "Hima Nagi Reddy",
+        model: "Hima Nagi bluedy",
     },
     {
         name: "Portrait26",
-        model: "Hima Nagi Reddy",
+        model: "Hima Nagi bluedy",
     },
 ]
 
@@ -274,4 +274,3 @@ export const cars = [
         owner: "Smaran Voora",
     },
 ]
-

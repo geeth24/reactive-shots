@@ -54,8 +54,8 @@ function Footer() {
                 <Group spacing={5} position="center">
                     <Image
                         src={dark ? "/Camera.png" : "/CameraLight.png"}
-                        width={25}
-                        height={25}
+                        width={30}
+                        height={30}
                         alt="Picture of the Reactive Shots Logo"
                     />
                     <Text
@@ -63,9 +63,9 @@ function Footer() {
                         weight={700}
                         color="blue"
                         sx={{
-                            fontFamily: "Carter One",
+                            fontFamily: "Black mud",
                         }}
-                        transform="uppercase"
+                        // transform="uppercase"
                         onClick={() => {
                             scroll.scrollToTop()
                         }}
