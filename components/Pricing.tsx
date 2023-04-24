@@ -390,7 +390,10 @@ function Pricing() {
                         align="center"
                         mt="md"
                     >
-                        I offer a variety of pricing options to fit your needs.
+                        I offer a variety of pricing options to fit your needs.{" "}
+                        <br />
+                        Custom pricing is available, please contact me for a
+                        quote.
                     </Text>
                 </motion.div>
                 <SimpleGrid

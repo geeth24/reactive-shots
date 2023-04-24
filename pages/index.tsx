@@ -11,6 +11,7 @@ import Footer from "../components/Footer"
 import { GetServerSideProps } from "next"
 import { sanityClient } from "../sanity"
 import { Cars, Events, Hero, Landscapes, Portraits } from "../typings"
+import Head from "next/head"
 
 interface Props {
     portraits: Portraits[]
@@ -47,6 +48,11 @@ export default function Home({
         <>
             {/* <Suspense fallback={renderLoader()}> */}
             <div>
+                <Head>
+                    <title>
+                        Reactive Shots | Professional Photography Services
+                    </title>
+                </Head>
                 <Navbar
                     links={[
                         { link: "home", label: "Home" },

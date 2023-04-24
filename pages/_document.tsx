@@ -8,25 +8,38 @@ export default class _Document extends Document {
 
     render() {
         return (
-            <Html>
+            <Html lang="en" itemScope itemType="https://schema.org/WebPage">
                 <Head>
                     <link rel="icon" href="/CameraLight.png" />
                     <link rel="apple-touch-icon" href="/CameraLight.png" />
-                    <meta property="og:title" content="Reactive Shots" />
-                    <meta
-                        name="image"
-                        property="og:image"
-                        content="/ReactiveshotsBC.jpg"
-                    />
                     <meta name="author" content="Geeth Gunnampalli" />
                     <meta
-                        property="og:description"
-                        content="Capturing your moment"
+                        name="description"
+                        content="Professional photography services specializing in portraits and Indian events. Contact Reactive Shots today for your next photo shoot!"
                     />
+                    <meta
+                        property="og:title"
+                        content="Reactive Shots | Professional Photography Services"
+                    />
+                    <meta
+                        property="og:description"
+                        content="Professional photography services specializing in portraits and Indian events. Contact Reactive Shots today for your next photo shoot!"
+                    />
+                    <meta property="og:image" content="/ReactiveshotsBC.jpg" />
                     <meta
                         property="og:url"
                         content="https://reactiveshots.com"
                     />
+                    <meta property="og:type" content="website" />
+                    <meta
+                        itemProp="name"
+                        content="Reactive Shots | Professional Photography Services"
+                    />
+                    <meta
+                        itemProp="description"
+                        content="Professional photography services specializing in portraits and Indian events. Contact Reactive Shots today for your next photo shoot!"
+                    />
+                    <meta itemProp="image" content="/ReactiveshotsBC.jpg" />
                 </Head>
                 <body>
                     <Main />
