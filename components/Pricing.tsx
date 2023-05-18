@@ -23,22 +23,22 @@ const pricingData = [
                 title: "1 Location",
             },
             {
-                title: "20 Edited Images",
+                title: "30 Edited Images",
             },
             {
                 title: "1 Revision",
             },
         ],
-        price: "$75",
+        price: "$100",
     },
     {
         title: "Package 2",
         description: [
             {
-                title: "Min 3 Hours Photoshoot",
+                title: "Min 3 Hours Event/Party",
             },
             {
-                title: "Event/Party",
+                title: "ONLY Event/Party",
             },
             {
                 title: "Unlimited Images",
@@ -47,7 +47,7 @@ const pricingData = [
                 title: "2 Revision",
             },
         ],
-        price: "$60/hr",
+        price: "$80/hr",
         bestValue: true,
     },
     {
@@ -60,13 +60,13 @@ const pricingData = [
                 title: "2 Location",
             },
             {
-                title: "50 Edited Images",
+                title: "60 Edited Images",
             },
             {
                 title: "2 Revision",
             },
         ],
-        price: "$300",
+        price: "$350",
     },
 ]
 
