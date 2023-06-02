@@ -23,6 +23,7 @@ const useStyles = createStyles((theme) => ({
     background: {
         paddingTop: theme.spacing.xl * 3,
         paddingBottom: theme.spacing.xl * 3,
+        
     },
 
     container: {
@@ -132,6 +133,7 @@ function Hero({ hero }: HeroProps) {
                                               ")",
 
                                     height: "100vh",
+                                    bgAttachment: "fixed",
                                 })}
                             ></BackgroundImage>
                         </Carousel.Slide>
