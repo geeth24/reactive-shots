@@ -17,7 +17,7 @@ interface Props {
 
 function Gallery({ portraits, landscapes, cars, events }: Props) {
     return (
-        <div id="gallery">
+        <div id="gallery" style={{ overflow: "hidden" }}>
             <motion.div
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
