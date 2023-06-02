@@ -51,6 +51,7 @@ function GallerySection({ images, title, subtitle }: Props) {
                         color: theme.colors.blue[5],
                         fontSize: "2.5rem",
                         marginBottom: theme.spacing.md,
+                        lineHeight: 2,
 
                         [theme.fn.smallerThan("xs")]: {
                             fontSize: "2rem",
@@ -61,11 +62,11 @@ function GallerySection({ images, title, subtitle }: Props) {
                         },
                     })}
                 >
-                    {title} Photography
+                    {title} <br /> Photography
                 </Title>
                 <Title
                     weight={700}
-                    color="white"
+                    // color="white"
                     sx={(theme) => ({
                         fontFamily: "Lato",
                         fontSize: "3rem",
@@ -84,6 +85,7 @@ function GallerySection({ images, title, subtitle }: Props) {
                         backgroundImage: `linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.2) 100%)`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
+                        overflow: "hidden",
                     })}
                 >
                     {subtitle.split(",").map((line) => (
