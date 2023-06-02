@@ -22,7 +22,7 @@ function Gallery({ portraits, landscapes, cars, events }: Props) {
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                viewport={{ once: true, amount: 0.8 }}
+                viewport={{ once: true, amount: 0.3 }}
                 style={{
                     width: "100%",
                     height: "100%",
@@ -75,7 +75,7 @@ function Gallery({ portraits, landscapes, cars, events }: Props) {
                 initial={{ x: 100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                viewport={{ once: true, amount: 0.8 }}
+                viewport={{ once: true, amount: 0.3 }}
                 style={{
                     width: "100%",
                     height: "100%",
@@ -128,7 +128,7 @@ function Gallery({ portraits, landscapes, cars, events }: Props) {
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                viewport={{ once: true, amount: 0.8 }}
+                viewport={{ once: true, amount: 0.3 }}
                 style={{
                     width: "100%",
                     height: "100%",
