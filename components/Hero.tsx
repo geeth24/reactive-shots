@@ -4,7 +4,7 @@ import {
     Title,
     Text,
     BackgroundImage,
-    Image,
+    useMantineColorScheme,
 } from "@mantine/core"
 import { useRef } from "react"
 import { Carousel } from "@mantine/carousel"
@@ -12,6 +12,8 @@ import Autoplay from "embla-carousel-autoplay"
 import { motion } from "framer-motion"
 import { Hero } from "../typings"
 import { urlFor } from "../sanity"
+import { useColorScheme } from "@mantine/hooks"
+import Image from "next/image"
 interface HeroProps {
     hero: Hero[]
 }
@@ -21,9 +23,8 @@ const useStyles = createStyles((theme) => ({
     },
 
     background: {
-        paddingTop: theme.spacing.xl * 3,
-        paddingBottom: theme.spacing.xl * 3,
-        
+        // paddingTop: theme.spacing.xl * 3,
+        // paddingBottom: theme.spacing.xl * 3,
     },
 
     container: {
@@ -81,6 +82,7 @@ function Hero({ hero }: HeroProps) {
 
     const title = "Reactive Shots"
     const subtitle = "Capturing your moment"
+    const { colorScheme } = useMantineColorScheme()
 
     return (
         <div className={classes.root} id="home">
@@ -117,7 +119,7 @@ function Hero({ hero }: HeroProps) {
                     .sort((a, b) => a.order - b.order)
                     .map((item, index) => (
                         <Carousel.Slide key={index}>
-                            <BackgroundImage
+                            {/* <BackgroundImage
                                 className={classes.background}
                                 src={urlFor(item.heroImage).url()!}
                                 sx={(theme) => ({
@@ -135,7 +137,36 @@ function Hero({ hero }: HeroProps) {
                                     height: "100vh",
                                     bgAttachment: "fixed",
                                 })}
-                            ></BackgroundImage>
+                            ></BackgroundImage> */}
+                            <div
+                                style={{
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                    backgroundImage:
+                                        colorScheme === "dark"
+                                            ? "linear-gradient(#25262b4a, #1864ab99), url(" +
+                                              urlFor(item.heroImage).url() +
+                                              ")"
+                                            : "linear-gradient(#f8f9fa4a, #339AF099), url(" +
+                                              urlFor(item.heroImage).url() +
+                                              ")",
+                                    backgroundAttachment: "fixed",
+                                    height: "100vh",
+                                }}
+                            ></div>
+
+                            <Image
+                                src={urlFor(item.heroImage).url()!}
+                                style={{
+                                    objectFit: "cover",
+                                    objectPosition: "center",
+                                    height: "100vh",
+                                    width: "100vw",
+                                }}
+                                height={6000}
+                                width={4000}
+                                alt={""}
+                            />
                         </Carousel.Slide>
                     ))}
             </Carousel>
@@ -150,7 +181,7 @@ function Hero({ hero }: HeroProps) {
                         alt="React Shots Logo"
                         width={250}
                         height={250}
-                        mb="md"
+                        // mb="md"
                     />
                 </motion.div>
                 <motion.div
@@ -179,7 +210,9 @@ function Hero({ hero }: HeroProps) {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 1.2 }}
                 >
-                    <Text className={classes.subtitle}>{subtitle}</Text>
+                    <Text className={classes.subtitle}>
+                        {subtitle} {colorScheme}
+                    </Text>
                 </motion.div>
             </Container>
         </div>

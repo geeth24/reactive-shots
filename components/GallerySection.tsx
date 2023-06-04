@@ -89,10 +89,10 @@ function GallerySection({ images, title, subtitle }: Props) {
                     })}
                 >
                     {subtitle.split(",").map((line) => (
-                        <>
+                        <div key={line}>
                             {line}
                             <br />
-                        </>
+                        </div>
                     ))}
                 </Title>
             </Container>
