@@ -210,9 +210,7 @@ function Hero({ hero }: HeroProps) {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 1.2 }}
                 >
-                    <Text className={classes.subtitle}>
-                        {subtitle} {colorScheme}
-                    </Text>
+                    <Text className={classes.subtitle}>{subtitle}</Text>
                 </motion.div>
             </Container>
         </div>
