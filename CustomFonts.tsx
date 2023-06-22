@@ -63,6 +63,10 @@ export function CustomFonts() {
                             gridTemplateColumns: "repeat(3, 1fr)",
                         },
                     },
+                    ".custom-wrapper-class3": {
+                       width: "100%",
+                       height: "100%",
+                    },
                 },
                 {
                     ".active": {

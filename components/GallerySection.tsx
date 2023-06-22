@@ -30,6 +30,7 @@ function GallerySection({ images, title, subtitle }: Props) {
                     background:
                         "linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,1) 100%)",
                     zIndex: 10,
+                    pointerEvents: "none",
                 }}
             ></div>
             {images}
@@ -42,6 +43,8 @@ function GallerySection({ images, title, subtitle }: Props) {
                     position: "absolute",
                     textAlign: `${title === "Event" ? "right" : "left"}`,
                     width: "100%",
+                    //disabling pointer events so that the gallery can be scrolled
+                    pointerEvents: "none",
                 }}
             >
                 <Title

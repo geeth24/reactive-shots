@@ -163,8 +163,8 @@ function Hero({ hero }: HeroProps) {
                                     height: "100vh",
                                     width: "100vw",
                                 }}
-                                height={6000}
-                                width={4000}
+                                width={750}
+                                height={500}
                                 alt={""}
                             />
                         </Carousel.Slide>

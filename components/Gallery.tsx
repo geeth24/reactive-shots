@@ -6,6 +6,14 @@ import Image from "next/image"
 import { Cars, Events, Landscapes, Portraits } from "../typings"
 import { urlFor } from "../sanity"
 import GallerySection from "./GallerySection"
+import "lightgallery/css/lightgallery.css"
+import "lightgallery/css/lg-zoom.css"
+import "lightgallery/css/lg-thumbnail.css"
+
+// import plugins if you need
+import lgThumbnail from "lightgallery/plugins/thumbnail"
+import lgZoom from "lightgallery/plugins/zoom"
+import LightGallery from "lightgallery/react"
 
 // @ts-ignore
 interface Props {
@@ -16,6 +24,9 @@ interface Props {
 }
 
 function Gallery({ portraits, landscapes, cars, events }: Props) {
+    const onInit = () => {
+        // console.log("lightGallery has been initialized")
+    }
     return (
         <div id="gallery" style={{ overflow: "hidden" }}>
             <motion.div
@@ -52,19 +63,30 @@ function Gallery({ portraits, landscapes, cars, events }: Props) {
                         })
                         .map((item, i) => (
                             <Grid.Col md={6} lg={3} key={i}>
-                                <Image
-                                    src={urlFor(item.portrait).url()}
-                                    alt={item.portraitName}
-                                    width={400}
-                                    height={200}
-                                    style={{
-                                        objectFit: "cover",
-                                        objectPosition: "center",
-                                        width: "100%",
-                                        height: "100%",
-                                    }}
-                                    key={i}
-                                />
+                                <LightGallery
+                                    onInit={onInit}
+                                    speed={500}
+                                    plugins={[lgThumbnail, lgZoom]}
+                                    licenseKey="YOUR_KEY"
+                                    download={false}
+                                    elementClassNames="custom-wrapper-class3"
+                                >
+                                    <Image
+                                        src={urlFor(item.portrait).url()}
+                                        alt={item.portraitName}
+                                        width={750}
+                                        height={500}
+                                        style={{
+                                            objectFit: "cover",
+                                            objectPosition: "center",
+                                            width: "100%",
+                                            height: "100%",
+                                        }}
+                                        key={i}
+                                        placeholder="blur"
+                                        blurDataURL="/CameraWhite.png"
+                                    />
+                                </LightGallery>
                             </Grid.Col>
                         ))}
                     title="Portrait"
@@ -105,19 +127,28 @@ function Gallery({ portraits, landscapes, cars, events }: Props) {
                         })
                         .map((item, i) => (
                             <Grid.Col md={6} lg={3} key={i}>
-                                <Image
-                                    src={urlFor(item.event).url()}
-                                    alt={item.eventName}
-                                    width={4000}
-                                    height={6000}
-                                    style={{
-                                        objectFit: "cover",
-                                        objectPosition: "center",
-                                        width: "100%",
-                                        height: "100%",
-                                    }}
-                                    key={i}
-                                />
+                                <LightGallery
+                                    onInit={onInit}
+                                    speed={500}
+                                    plugins={[lgThumbnail, lgZoom]}
+                                    licenseKey="YOUR_KEY"
+                                    download={false}
+                                    elementClassNames="custom-wrapper-class3"
+                                >
+                                    <Image
+                                        src={urlFor(item.event).url()}
+                                        alt={item.eventName}
+                                        width={750}
+                                        height={500}
+                                        style={{
+                                            objectFit: "cover",
+                                            objectPosition: "center",
+                                            width: "100%",
+                                            height: "100%",
+                                        }}
+                                        key={i}
+                                    />
+                                </LightGallery>
                             </Grid.Col>
                         ))}
                     title="Event"
@@ -158,19 +189,28 @@ function Gallery({ portraits, landscapes, cars, events }: Props) {
                         })
                         .map((item, i) => (
                             <Grid.Col md={6} lg={3} key={i}>
-                                <Image
-                                    src={urlFor(item.car).url()}
-                                    alt={item.carName}
-                                    width={400}
-                                    height={200}
-                                    style={{
-                                        objectFit: "cover",
-                                        objectPosition: "center",
-                                        width: "100%",
-                                        height: "100%",
-                                    }}
-                                    key={i}
-                                />
+                                <LightGallery
+                                    onInit={onInit}
+                                    speed={500}
+                                    plugins={[lgThumbnail, lgZoom]}
+                                    licenseKey="YOUR_KEY"
+                                    download={false}
+                                    elementClassNames="custom-wrapper-class3"
+                                >
+                                    <Image
+                                        src={urlFor(item.car).url()}
+                                        alt={item.carName}
+                                        width={750}
+                                        height={500}
+                                        style={{
+                                            objectFit: "cover",
+                                            objectPosition: "center",
+                                            width: "100%",
+                                            height: "100%",
+                                        }}
+                                        key={i}
+                                    />
+                                </LightGallery>
                             </Grid.Col>
                         ))}
                     title="Car"
