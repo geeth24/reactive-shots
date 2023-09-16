@@ -28,7 +28,7 @@ function GallerySection({ images, title, subtitle }: Props) {
                     right: 0,
                     height: "100vh",
                     background:
-                        "linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,1) 100%)",
+                        "linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 100%)",
                     zIndex: 10,
                     pointerEvents: "none",
                 }}
@@ -82,12 +82,7 @@ function GallerySection({ images, title, subtitle }: Props) {
                         [theme.fn.largerThan("lg")]: {
                             fontSize: "3.5rem",
                         },
-                        color: "transparent",
-                        backgroundClip: "text",
-                        WebkitBackgroundClip: "text",
-                        backgroundImage: `linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.2) 100%)`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
+                        color: "white",
                         overflow: "hidden",
                     })}
                 >

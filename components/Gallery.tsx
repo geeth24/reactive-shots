@@ -138,8 +138,8 @@ function Gallery({ portraits, landscapes, cars, events }: Props) {
                                     <Image
                                         src={urlFor(item.event).url()}
                                         alt={item.eventName}
-                                        width={750}
-                                        height={500}
+                                        width={1000}
+                                        height={750}
                                         style={{
                                             objectFit: "cover",
                                             objectPosition: "center",
